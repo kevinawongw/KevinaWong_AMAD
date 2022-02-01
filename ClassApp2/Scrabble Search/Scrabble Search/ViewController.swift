@@ -12,6 +12,7 @@ class ViewController: UITableViewController {
     var words = [String]()
     var data = DataLoader()
     let wordFile = "qwordswithoutu1"
+    var searchController = UISearchController
     
     
     override func viewDidLoad() {

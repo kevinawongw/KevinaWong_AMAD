@@ -16,7 +16,7 @@
 		0A074D7C27A868C400344D6F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A074D7B27A868C400344D6F /* SecondViewController.swift */; };
 		0A074D8027A8819B00344D6F /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A074D7F27A8819B00344D6F /* FoodCategory.swift */; };
 		0A074D8227A8829D00344D6F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A074D8127A8829D00344D6F /* DataLoader.swift */; };
-		0A074D8427A8FF7600344D6F /* FoodCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A074D8327A8FF7500344D6F /* FoodCategories.plist */; };
+		0A533FB127A9937E00EA3E16 /* FoodCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A533FB027A9937E00EA3E16 /* FoodCategories.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		0A074D7B27A868C400344D6F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		0A074D7F27A8819B00344D6F /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		0A074D8127A8829D00344D6F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		0A074D8327A8FF7500344D6F /* FoodCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FoodCategories.plist; path = "../../../../Downloads/Spring22_AdvMobileAppDev-main/week 01/music/music/Utilities/FoodCategories.plist"; sourceTree = "<group>"; };
+		0A533FB027A9937E00EA3E16 /* FoodCategories.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = FoodCategories.plist; path = ../FoodCategories.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 				0A074D7227A8658E00344D6F /* LaunchScreen.storyboard */,
 				0A074D7527A8658E00344D6F /* Info.plist */,
 				0A074D8127A8829D00344D6F /* DataLoader.swift */,
-				0A074D8327A8FF7500344D6F /* FoodCategories.plist */,
+				0A533FB027A9937E00EA3E16 /* FoodCategories.plist */,
 			);
 			path = "Kevina's Cafe";
 			sourceTree = "<group>";
@@ -137,8 +137,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A533FB127A9937E00EA3E16 /* FoodCategories.plist in Resources */,
 				0A074D7427A8658E00344D6F /* LaunchScreen.storyboard in Resources */,
-				0A074D8427A8FF7600344D6F /* FoodCategories.plist in Resources */,
 				0A074D7127A8658E00344D6F /* Assets.xcassets in Resources */,
 				0A074D6F27A8658800344D6F /* Main.storyboard in Resources */,
 			);
