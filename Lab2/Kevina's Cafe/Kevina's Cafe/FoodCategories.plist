@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>category</key>
+		<string>Coffee</string>
+		<key>foodItems</key>
+		<array>
+			<string>Coffee</string>
+			<string>Espresso</string>
+			<string>Cortado</string>
+			<string>Flat White</string>
+			<string>Latte</string>
+		</array>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>Tea</string>
+		<key>foodItems</key>
+		<array>
+			<string>Black Tea</string>
+			<string>Green Tea</string>
+			<string>Chai Latte</string>
+			<string>Matcha Latte</string>
+			<string>London Fog</string>
+		</array>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>Bakery</string>
+		<key>foodItems</key>
+		<array>
+			<string>Chocolate Muffin</string>
+			<string>Cinnamon Bun</string>
+			<string>Coffee Cake</string>
+			<string>Oatmeal Cookie</string>
+			<string>Blueberry Muffin</string>
+		</array>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>Kid's</string>
+		<key>foodItems</key>
+		<array>
+			<string>Hot Chocolate</string>
+			<string>Vanilla Steamer</string>
+			<string>Carmel Steamer</string>
+		</array>
+	</dict>
+</array>
+</plist>
