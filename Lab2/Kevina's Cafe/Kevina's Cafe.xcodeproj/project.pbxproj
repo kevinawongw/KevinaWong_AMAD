@@ -17,6 +17,7 @@
 		0A074D8027A8819B00344D6F /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A074D7F27A8819B00344D6F /* FoodCategory.swift */; };
 		0A074D8227A8829D00344D6F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A074D8127A8829D00344D6F /* DataLoader.swift */; };
 		0A533FB127A9937E00EA3E16 /* FoodCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A533FB027A9937E00EA3E16 /* FoodCategories.plist */; };
+		0A533FB327A9999F00EA3E16 /* SecularOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A533FB227A9999F00EA3E16 /* SecularOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0A074D7F27A8819B00344D6F /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		0A074D8127A8829D00344D6F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		0A533FB027A9937E00EA3E16 /* FoodCategories.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = FoodCategories.plist; path = ../FoodCategories.plist; sourceTree = "<group>"; };
+		0A533FB227A9999F00EA3E16 /* SecularOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SecularOne-Regular.ttf"; path = "Kevina's Cafe/SecularOne-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				0A074D7527A8658E00344D6F /* Info.plist */,
 				0A074D8127A8829D00344D6F /* DataLoader.swift */,
 				0A533FB027A9937E00EA3E16 /* FoodCategories.plist */,
+				0A533FB227A9999F00EA3E16 /* SecularOne-Regular.ttf */,
 			);
 			path = "Kevina's Cafe";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				0A074D7427A8658E00344D6F /* LaunchScreen.storyboard in Resources */,
 				0A074D7127A8658E00344D6F /* Assets.xcassets in Resources */,
 				0A074D6F27A8658800344D6F /* Main.storyboard in Resources */,
+				0A533FB327A9999F00EA3E16 /* SecularOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
