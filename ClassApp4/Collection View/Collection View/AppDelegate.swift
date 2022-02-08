@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Scrabble Search
+//  Collection View
 //
 //  Created by Kevina Wong on 2/8/22.
 //

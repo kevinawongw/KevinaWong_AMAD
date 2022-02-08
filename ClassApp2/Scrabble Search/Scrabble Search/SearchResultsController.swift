@@ -1,69 +1,83 @@
 //
-//  SearchResultsTableViewController.swift
+//  SearchResultsController.swift
 //  Scrabble Search
 //
-//  Created by Kevina Wong on 1/27/22.
+//  Created by Kevina Wong on 2/8/22.
 //
 
 import UIKit
 
-class SearchResultsTableViewController: UITableViewController, UISearchResultsUpdating {
+class SearchResultsController: UITableViewController, UISearchResultsUpdating {
     
-    // Array to hold all words
-    var allWords = [String]()
-    // Array to hold filtered words
+    var allwords = [GroupedWords]()
     var filteredWords = [String]()
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        // Input string the user is searching
-        let searchString = searchController.searchBar.text
-        
-        filteredWords.removeAll(keepingCapacity: true)
-        if searchString?.isEmpty == false {
-            let searchFilter: (String) -> Bool = { name in
-                let range = name.range(of: searchString!, options: .caseInsensitive)
-                return range != nil
-            }
-            let matches = allWords.filter(searchFilter)
-            filteredWords.append(contentsOf: matches)
-        }
-        tableView.reloadData() //reload table data with search results
-
-    }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "scrabbleCell")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchString = searchController.searchBar.text
+        filteredWords.removeAll(keepingCapacity: true)
+        
+        if searchString?.isEmpty == false {
+            let searchFilter: (String) -> Bool = { name in
+                let range = name.range(of: searchString!, options: .caseInsensitive)
+                return range != nil
+            }
+            for item in allwords{
+                let wordsForLetter = item.words
+                let matched = wordsForLetter.filter(searchFilter)
+                filteredWords.append(contentsOf: matched)
+            }
+//            let matches = allwords.filter(searchFilter)
+//            filteredWords.append(contentsOf: matches)
+         }
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return filteredWords.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scrabbleCell", for: indexPath)
 
         // Configure the cell...
+        var cellConfig = cell.defaultContentConfiguration()
+        cellConfig.text = filteredWords[indexPath.row]
+        cellConfig.image = UIImage(named: "scrabble")
+        cellConfig.secondaryText = "+\(filteredWords[indexPath.row].count) Points!"
+        cell.contentConfiguration = cellConfig
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Row Selected", message: "You Selected \(filteredWords[indexPath.row])", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
