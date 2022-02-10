@@ -49,7 +49,7 @@
         <!--Recipes-->
         <scene sceneID="gmL-f5-S7z">
             <objects>
-                <tableViewController id="LOf-TB-eem" customClass="RecipesTableViewController" customModule="Recipe_Book" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RecipeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LOf-TB-eem" customClass="RecipesTableViewController" customModule="Recipe_Book" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="iAe-YZ-4AT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,11 +207,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Recipe Details" id="vD1-or-8c5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HZb-QH-kdC">
-                            <color key="tintColor" red="0.3431560602" green="0.35958593799999999" blue="0.32457222619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Recipe Details" id="vD1-or-8c5"/>
                     <connections>
                         <outlet property="backgroundView" destination="LTP-YR-eg2" id="aCT-JR-h66"/>
                         <outlet property="recipeImage" destination="CGx-U8-jfi" id="3Pa-JA-18z"/>
@@ -348,7 +344,7 @@
         <!--Navigation Controller-->
         <scene sceneID="egu-JZ-fh1">
             <objects>
-                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="KUO-qn-HWX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KUO-qn-HWX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hzC-db-8t5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

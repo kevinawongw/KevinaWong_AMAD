@@ -44,6 +44,12 @@ class RecipesTableViewController: UITableViewController {
         return allData[selectedCategory].foods.count
     }
     
+    
+
+
+
+    // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let recipesInSection = allData[selectedCategory].foods
@@ -59,41 +65,6 @@ class RecipesTableViewController: UITableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Recipes"
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        if searchController.searchBar.text?.isEmpty == false{
-//            let story = UIStoryboard(name: "Main", bundle: nil)
-//            let detailVC = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-//                detailVC.foodName = allData[selectedCategory].foods[indexPath.row].foodName
-//                detailVC.foodIngredients = allData[selectedCategory].foods[indexPath.row].foodIngredients
-//                detailVC.foodTime = allData[selectedCategory].foods[indexPath.row].foodTime
-//                detailVC.foodImageName = allData[selectedCategory].foods[indexPath.row].foodImage
-//            self.navigationController?.pushViewController(detailVC, animated: true)
-//        }
-//        print("running here")
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        searchController.isActive = false
-    }
-
-
-
-
-    // MARK: - Table view data source
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     
     // Override to support conditional editing of the table view.

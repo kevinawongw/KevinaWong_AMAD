@@ -11,10 +11,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     var allRecipes = [FoodData]()
     var filteredFoodList = [Food]()
+    
 
     func updateSearchResults(for searchController: UISearchController) {
         
         let searchString = searchController.searchBar.text
+        searchController.searchBar.barTintColor = UIColor(named: "myGreen")
+        searchController.searchBar.backgroundColor = UIColor(named: "myGreen")
         filteredFoodList.removeAll(keepingCapacity: true)
         
         if searchString?.isEmpty == false {
@@ -40,8 +43,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "foodCell")
         tableView.delegate = self
-    }
+        tableView.backgroundColor = UIColor(named: "myGreen")
+        tableView.tintColor = UIColor(named:"myGreen")
 
+    }
+    
+
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,24 +79,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-
-        
         
         let story = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
         detailVC.foodName = filteredFoodList[indexPath.row].foodName
         detailVC.foodIngredients = filteredFoodList[indexPath.row].foodIngredients
         detailVC.foodTime = filteredFoodList[indexPath.row].foodTime
         detailVC.foodImageName = filteredFoodList[indexPath.row].foodImage
 
-        if let selectServicesController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            let navigationController = UINavigationController(rootViewController: selectServicesController)
-            
-            self.navigationController?.present(navigationController, animated: true, completion: {print("OK")})
-        }
         
-        self.view.window!.rootViewController = detailVC
-        navigationController?.pushViewController(detailVC, animated: true)
+        detailVC.modalPresentationStyle = .popover
+        present(detailVC, animated: true, completion: {print("Done!")})
         print("running here")
         tableView.deselectRow(at: indexPath, animated: true)
         
