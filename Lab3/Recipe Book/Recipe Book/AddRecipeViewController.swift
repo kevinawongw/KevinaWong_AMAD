@@ -9,6 +9,22 @@ import UIKit
 
 class AddRecipeViewController: UIViewController {
 
+    @IBOutlet weak var recipeTime: UITextField!
+    @IBOutlet weak var recipeName: UITextField!
+    
+    var addedRecipe = String()
+    var addedTime = String()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "doneSegue"{
+            if recipeName.text?.isEmpty == false {
+                addedRecipe = recipeName.text!
+                addedTime = recipeTime.text!
+
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

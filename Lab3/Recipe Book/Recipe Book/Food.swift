@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Food : Decodable{
+    var foodName: String
+    var foodTime: String
+    var foodIngredients: [String]
+    var foodImage: String
+    
+    
+}

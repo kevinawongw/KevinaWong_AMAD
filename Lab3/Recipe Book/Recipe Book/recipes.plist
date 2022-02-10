@@ -1,12 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   recipes.plist
-   Recipe Book
-
-   Created by Kevina Wong on 2/8/22.
-   Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
--->
 <plist version="1.0">
-<dict/>
+<array>
+	<dict>
+		<key>type</key>
+		<string>Breakfast</string>
+		<key>foods</key>
+		<array>
+			<dict>
+				<key>foodImage</key>
+				<string>pancakes</string>
+				<key>foodName</key>
+				<string>Pancakes</string>
+				<key>foodTime</key>
+				<string>10 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Flour</string>
+					<string>Eggs</string>
+					<string>Sugar</string>
+				</array>
+			</dict>
+			<dict>
+				<key>foodImage</key>
+				<string>egg</string>
+				<key>foodName</key>
+				<string>Eggs</string>
+				<key>foodTime</key>
+				<string>5 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Salt</string>
+					<string>Eggs</string>
+					<string>Milk</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>Lunch</string>
+		<key>foods</key>
+		<array>
+			<dict>
+				<key>foodImage</key>
+				<string>blt</string>
+				<key>foodName</key>
+				<string>BLT</string>
+				<key>foodTime</key>
+				<string>20 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Bacon</string>
+					<string>Lettuce</string>
+					<string>Tomato</string>
+					<string>Bread</string>
+					<string>Mayo</string>
+				</array>
+			</dict>
+			<dict>
+				<key>foodImage</key>
+				<string>quesadilla</string>
+				<key>foodName</key>
+				<string>Quesadilla</string>
+				<key>foodTime</key>
+				<string>10 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Torilla</string>
+					<string>Cheese</string>
+					<string>Salsa</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>Dinner</string>
+		<key>foods</key>
+		<array>
+			<dict>
+				<key>foodImage</key>
+				<string>salmon</string>
+				<key>foodName</key>
+				<string>Salted Salmon</string>
+				<key>foodTime</key>
+				<string>20 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Salt</string>
+					<string>Salmon</string>
+					<string>Garlic</string>
+				</array>
+			</dict>
+			<dict>
+				<key>foodImage</key>
+				<string>miso</string>
+				<key>foodName</key>
+				<string>Miso Soup</string>
+				<key>foodTime</key>
+				<string>10 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Miso</string>
+					<string>Water</string>
+					<string>Tofu</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>Dessert</string>
+		<key>foods</key>
+		<array>
+			<dict>
+				<key>foodImage</key>
+				<string>cheesecake</string>
+				<key>foodName</key>
+				<string>Cheesecake</string>
+				<key>foodTime</key>
+				<string>40 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Flour</string>
+					<string>Eggs</string>
+					<string>Sugar</string>
+					<string>Cream Cheese</string>
+					<string>Vanilla</string>
+				</array>
+			</dict>
+			<dict>
+				<key>foodImage</key>
+				<string>parfait</string>
+				<key>foodName</key>
+				<string>Parfait</string>
+				<key>foodTime</key>
+				<string>15 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Ice Cream</string>
+					<string>Strawberries</string>
+					<string>Blueberries</string>
+					<string>Banana</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>type</key>
+		<string>Beverages</string>
+		<key>foods</key>
+		<array>
+			<dict>
+				<key>foodImage</key>
+				<string>hotchocolate</string>
+				<key>foodName</key>
+				<string>Hot Chocolate</string>
+				<key>foodTime</key>
+				<string>10 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Milk</string>
+					<string>Chocolate</string>
+					<string>Sugar</string>
+				</array>
+			</dict>
+			<dict>
+				<key>foodImage</key>
+				<string>matcha</string>
+				<key>foodName</key>
+				<string>Matcha Latte</string>
+				<key>foodTime</key>
+				<string>5 min</string>
+				<key>foodIngredients</key>
+				<array>
+					<string>Matcha Powder</string>
+					<string>Milk</string>
+					<string>Sweetener</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</array>
 </plist>

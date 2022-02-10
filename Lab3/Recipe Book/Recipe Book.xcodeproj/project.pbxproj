@@ -13,6 +13,15 @@
 		0A5EC48527B318A7001A9E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC48327B318A7001A9E2F /* Main.storyboard */; };
 		0A5EC48727B318AD001A9E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC48627B318AD001A9E2F /* Assets.xcassets */; };
 		0A5EC48A27B318AD001A9E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC48827B318AD001A9E2F /* LaunchScreen.storyboard */; };
+		0A5EC49227B318BE001A9E2F /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC49127B318BE001A9E2F /* recipes.plist */; };
+		0A5EC49427B31CFB001A9E2F /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49327B31CFB001A9E2F /* FoodData.swift */; };
+		0A5EC49627B31D3E001A9E2F /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49527B31D3E001A9E2F /* Food.swift */; };
+		0A5EC49827B31D86001A9E2F /* FoodDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49727B31D86001A9E2F /* FoodDataLoader.swift */; };
+		0A5EC49A27B329B9001A9E2F /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49927B329B9001A9E2F /* RecipesTableViewController.swift */; };
+		0A5EC49C27B49A37001A9E2F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49B27B49A37001A9E2F /* DetailViewController.swift */; };
+		0A5EC49E27B4A39E001A9E2F /* FredokaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC49D27B4A39E001A9E2F /* FredokaOne-Regular.ttf */; };
+		0A5EC4A027B4B7F4001A9E2F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC49F27B4B7F4001A9E2F /* SearchTableViewController.swift */; };
+		0A5EC4A227B4EE90001A9E2F /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC4A127B4EE90001A9E2F /* AddRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		0A5EC48627B318AD001A9E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A5EC48927B318AD001A9E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A5EC48B27B318AD001A9E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A5EC49127B318BE001A9E2F /* recipes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
+		0A5EC49327B31CFB001A9E2F /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
+		0A5EC49527B31D3E001A9E2F /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		0A5EC49727B31D86001A9E2F /* FoodDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataLoader.swift; sourceTree = "<group>"; };
+		0A5EC49927B329B9001A9E2F /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		0A5EC49B27B49A37001A9E2F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0A5EC49D27B4A39E001A9E2F /* FredokaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FredokaOne-Regular.ttf"; sourceTree = "<group>"; };
+		0A5EC49F27B4B7F4001A9E2F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		0A5EC4A127B4EE90001A9E2F /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +77,19 @@
 				0A5EC47D27B318A7001A9E2F /* AppDelegate.swift */,
 				0A5EC47F27B318A7001A9E2F /* SceneDelegate.swift */,
 				0A5EC48127B318A7001A9E2F /* ViewController.swift */,
+				0A5EC49927B329B9001A9E2F /* RecipesTableViewController.swift */,
 				0A5EC48327B318A7001A9E2F /* Main.storyboard */,
+				0A5EC4A127B4EE90001A9E2F /* AddRecipeViewController.swift */,
+				0A5EC49B27B49A37001A9E2F /* DetailViewController.swift */,
+				0A5EC49F27B4B7F4001A9E2F /* SearchTableViewController.swift */,
 				0A5EC48627B318AD001A9E2F /* Assets.xcassets */,
 				0A5EC48827B318AD001A9E2F /* LaunchScreen.storyboard */,
 				0A5EC48B27B318AD001A9E2F /* Info.plist */,
+				0A5EC49127B318BE001A9E2F /* recipes.plist */,
+				0A5EC49527B31D3E001A9E2F /* Food.swift */,
+				0A5EC49327B31CFB001A9E2F /* FoodData.swift */,
+				0A5EC49727B31D86001A9E2F /* FoodDataLoader.swift */,
+				0A5EC49D27B4A39E001A9E2F /* FredokaOne-Regular.ttf */,
 			);
 			path = "Recipe Book";
 			sourceTree = "<group>";
@@ -127,7 +154,9 @@
 			files = (
 				0A5EC48A27B318AD001A9E2F /* LaunchScreen.storyboard in Resources */,
 				0A5EC48727B318AD001A9E2F /* Assets.xcassets in Resources */,
+				0A5EC49227B318BE001A9E2F /* recipes.plist in Resources */,
 				0A5EC48527B318A7001A9E2F /* Main.storyboard in Resources */,
+				0A5EC49E27B4A39E001A9E2F /* FredokaOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A5EC48227B318A7001A9E2F /* ViewController.swift in Sources */,
+				0A5EC4A027B4B7F4001A9E2F /* SearchTableViewController.swift in Sources */,
+				0A5EC4A227B4EE90001A9E2F /* AddRecipeViewController.swift in Sources */,
+				0A5EC49A27B329B9001A9E2F /* RecipesTableViewController.swift in Sources */,
 				0A5EC47E27B318A7001A9E2F /* AppDelegate.swift in Sources */,
+				0A5EC49627B31D3E001A9E2F /* Food.swift in Sources */,
 				0A5EC48027B318A7001A9E2F /* SceneDelegate.swift in Sources */,
+				0A5EC49827B31D86001A9E2F /* FoodDataLoader.swift in Sources */,
+				0A5EC49427B31CFB001A9E2F /* FoodData.swift in Sources */,
+				0A5EC49C27B49A37001A9E2F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
