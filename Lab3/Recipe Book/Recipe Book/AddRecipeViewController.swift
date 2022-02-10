@@ -11,16 +11,26 @@ class AddRecipeViewController: UIViewController {
 
     @IBOutlet weak var recipeTime: UITextField!
     @IBOutlet weak var recipeName: UITextField!
+    @IBOutlet weak var recipeIng1: UITextField!
+
+    @IBOutlet weak var recipeIng2: UITextField!
+
+    @IBOutlet weak var recipeIng3: UITextField!
     
     var addedRecipe = String()
     var addedTime = String()
+    var ing1 = String()
+    var ing2 = String()
+    var ing3 = String()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneSegue"{
             if recipeName.text?.isEmpty == false {
                 addedRecipe = recipeName.text!
                 addedTime = recipeTime.text!
-
+                ing1 = recipeIng1.text!
+                ing2 = recipeIng2.text!
+                ing3 = recipeIng3.text!
             }
         }
     }

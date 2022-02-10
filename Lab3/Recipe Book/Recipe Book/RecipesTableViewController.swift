@@ -9,6 +9,10 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
     
+    
+    /*
+     Initialize Variables
+     */
     var foodTypeList = [String]()
     var foodData = FoodDataLoader()
     var allData = [FoodData]()
@@ -16,8 +20,9 @@ class RecipesTableViewController: UITableViewController {
     var selectedCategory = 0
     var searchController = UISearchController()
     
+    
     override func viewDidLoad() {
-        
+    
         super.viewDidLoad()
 
         
@@ -33,6 +38,10 @@ class RecipesTableViewController: UITableViewController {
         searchController.searchBar.sizeToFit()
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = resultsController
+        searchController.searchBar.barTintColor = UIColor(named: "myGreen")
+        searchController.searchBar.tintColor = UIColor.darkGray
+        searchController.searchBar.backgroundColor = UIColor.white
+        searchController.searchBar.searchTextField.font = UIFont(name: "FredokaOne-Regular", size: 12.0)
             
     }
 
@@ -43,9 +52,6 @@ class RecipesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allData[selectedCategory].foods.count
     }
-    
-    
-
 
 
     // MARK: - Table view data source
@@ -81,7 +87,6 @@ class RecipesTableViewController: UITableViewController {
            
             allData[selectedCategory].foods.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
             foodData.deleteFood(index: selectedCategory, foodIndex: indexPath.row)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -116,7 +121,8 @@ class RecipesTableViewController: UITableViewController {
                  if source.addedRecipe.isEmpty == false{
                      foodData.addFood(index: selectedCategory, newName: source.addedRecipe, newTime: source.addedTime)
                      
-                     allData[selectedCategory].foods.append(Food(foodName: source.addedRecipe, foodTime: source.addedTime, foodIngredients: [String](), foodImage: "cooking"))
+                     allData[selectedCategory].foods.append(Food(foodName: source.addedRecipe, foodTime: source.addedTime, foodIngredients: [source.ing1, source.ing2, source.ing3], foodImage: "cooking"))
+                     
                      tableView.reloadData()
                  }
              }

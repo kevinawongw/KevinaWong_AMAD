@@ -20,8 +20,6 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         foodData.loadData(fileName: file)
         foodTypeList = foodData.getFoodTypes()
-        
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

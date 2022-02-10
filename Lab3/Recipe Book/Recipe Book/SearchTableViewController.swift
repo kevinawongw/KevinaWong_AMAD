@@ -16,8 +16,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     func updateSearchResults(for searchController: UISearchController) {
         
         let searchString = searchController.searchBar.text
-        searchController.searchBar.barTintColor = UIColor(named: "myGreen")
-        searchController.searchBar.backgroundColor = UIColor(named: "myGreen")
+        
         filteredFoodList.removeAll(keepingCapacity: true)
         
         if searchString?.isEmpty == false {
@@ -45,7 +44,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         tableView.delegate = self
         tableView.backgroundColor = UIColor(named: "myGreen")
         tableView.tintColor = UIColor(named:"myGreen")
-
     }
     
 

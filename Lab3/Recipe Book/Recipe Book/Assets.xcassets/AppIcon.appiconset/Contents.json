@@ -31,13 +31,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "cooking.png",
+      "filename" : "120x120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "cooking-1.png",
+      "filename" : "180x180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"

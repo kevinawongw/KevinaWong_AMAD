@@ -229,13 +229,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="ztK-4w-Bbe">
-                                <rect key="frame" x="56" y="120" width="302.5" height="91"/>
+                                <rect key="frame" x="25" y="120" width="364" height="244"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="7a3-g3-aRv">
-                                        <rect key="frame" x="0.0" y="0.0" width="302.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D60-Kx-ca5">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Lm5-Pv-4ru"/>
                                                 </constraints>
@@ -244,7 +244,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Glx-qP-JGu">
-                                                <rect key="frame" x="152.5" y="0.0" width="150" height="40"/>
+                                                <rect key="frame" x="214" y="0.0" width="150" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="EgD-7Q-qos"/>
                                                 </constraints>
@@ -254,10 +254,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="5gy-Dh-yAm">
-                                        <rect key="frame" x="0.0" y="51" width="302.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="51" width="364" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZw-CZ-ieT">
-                                                <rect key="frame" x="0.0" y="0.0" width="36.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="xEq-ZP-OOv"/>
                                                 </constraints>
@@ -266,9 +266,75 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4E-wz-A8O">
-                                                <rect key="frame" x="152.5" y="0.0" width="150" height="40"/>
+                                                <rect key="frame" x="214" y="0.0" width="150" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="mDP-lq-AV3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="uma-XK-RK9">
+                                        <rect key="frame" x="0.0" y="102" width="364" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ingredient #1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwi-Ml-xJW">
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Ey0-rk-JLB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FredokaOne-Regular" family="Fredoka One" pointSize="15"/>
+                                                <color key="textColor" red="0.3431560602" green="0.35958593799999999" blue="0.32457222619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y0w-zH-OZ2">
+                                                <rect key="frame" x="214" y="0.0" width="150" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="5yq-Yn-YCO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-oF-Ozo">
+                                        <rect key="frame" x="0.0" y="153" width="364" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ingredient #2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAr-BO-Oob">
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="BRW-e7-Fkp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FredokaOne-Regular" family="Fredoka One" pointSize="15"/>
+                                                <color key="textColor" red="0.3431560602" green="0.35958593799999999" blue="0.32457222619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j8w-bZ-RRg">
+                                                <rect key="frame" x="214" y="0.0" width="150" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="MnS-ev-k33"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="ihh-ZX-d46">
+                                        <rect key="frame" x="0.0" y="204" width="364" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Ingredient #3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGu-RA-In3">
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="MSw-iY-ZwM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FredokaOne-Regular" family="Fredoka One" pointSize="15"/>
+                                                <color key="textColor" red="0.3431560602" green="0.35958593799999999" blue="0.32457222619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lv2-Op-PBX">
+                                                <rect key="frame" x="214" y="0.0" width="150" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="6cW-8r-eY4"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done"/>
@@ -332,6 +398,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="recipeIng1" destination="j8w-bZ-RRg" id="vTX-Nz-wvJ"/>
+                        <outlet property="recipeIng2" destination="j8w-bZ-RRg" id="bdc-Py-gFd"/>
+                        <outlet property="recipeIng3" destination="Lv2-Op-PBX" id="3QA-ij-hNd"/>
                         <outlet property="recipeName" destination="Glx-qP-JGu" id="4hF-Ik-wo6"/>
                         <outlet property="recipeTime" destination="Z4E-wz-A8O" id="GSF-ds-pp5"/>
                     </connections>
