@@ -11,13 +11,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     
     var allRecipes = [FoodData]()
-    var keepRecipes = [Food]()
-    var filteredRecipes = [String]()
+    var filteredFoodList = [Food]()
+//    var filteredRecipes = [String]()
+    var filteredFoodChoice: Food?
     
     func updateSearchResults(for searchController: UISearchController) {
-
+        
         let searchString = searchController.searchBar.text
-        filteredRecipes.removeAll(keepingCapacity: true)
+        filteredFoodList.removeAll(keepingCapacity: true)
         
         if searchString?.isEmpty == false {
             let searchFilter: (String) -> Bool = { name in
@@ -30,10 +31,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
                 let matched = recipesForType.filter(searchFilter)
                 for i in item.foods{
                     if matched.contains(i.foodName) {
-                        keepRecipes.append(i)
+                        filteredFoodList.append(i)
                     }
                 }
-                filteredRecipes.append(contentsOf: matched)
             }
         }
         tableView.reloadData()
@@ -41,26 +41,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = true
+        tableView.delegate = self
+        tableView.allowsSelection = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "foodCell")
         tableView.backgroundColor = UIColor(named: "myGreen")
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            if let detailVC = segue.destination as? DetailViewController {
-                if let indexPath = tableView.indexPath(for: (sender as? UITableViewCell)!){
-                    detailVC.foodName = keepRecipes[indexPath.row].foodName
-                    detailVC.foodIngredients = keepRecipes[indexPath.row].foodIngredients
-                    detailVC.foodTime = keepRecipes[indexPath.row].foodTime
-                    detailVC.foodImageName = keepRecipes[indexPath.row].foodImage
-                }
-            }
-        }
     }
 
     // MARK: - Table view data source
@@ -72,13 +62,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filteredRecipes.count
+        return filteredFoodList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)
         var cellConfig = cell.defaultContentConfiguration()
-        cellConfig.text = filteredRecipes[indexPath.row]
+        cellConfig.text = filteredFoodList[indexPath.row].foodName
         cellConfig.textProperties.font = UIFont(name: "FredokaOne-Regular", size: 12.0) ?? UIFont(name: "Helvetica", size: 20.0)!
         cellConfig.textProperties.color = UIColor.darkGray
         cell.contentConfiguration = cellConfig
@@ -86,16 +76,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detailSegue", sender: self)
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
+
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Search"
     }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -51,6 +51,7 @@ class RecipesTableViewController: UITableViewController {
         searchController.searchBar.sizeToFit()
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = resultsController
+            
                 
     }
     
@@ -59,9 +60,9 @@ class RecipesTableViewController: UITableViewController {
             if let detailVC = segue.destination as? DetailViewController {
                 if let indexPath = tableView.indexPath(for: (sender as? UITableViewCell)!){
                     detailVC.foodName = foodList[indexPath.row].foodName
-                    detailVC.foodIngredients = foodList[indexPath.row].foodIngredients
-                    detailVC.foodTime = foodList[indexPath.row].foodTime
-                    detailVC.foodImageName = foodList[indexPath.row].foodImage
+                        detailVC.foodIngredients = foodList[indexPath.row].foodIngredients
+                        detailVC.foodTime = foodList[indexPath.row].foodTime
+                        detailVC.foodImageName = foodList[indexPath.row].foodImage
                 }
             }
         }
@@ -93,9 +94,17 @@ class RecipesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: indexPath as IndexPath)!
-
-        performSegue(withIdentifier: "detailSegue", sender: currentCell)
+        if searchController.searchBar.text?.isEmpty == false{
+            let story = UIStoryboard(name: "Main", bundle: nil)
+            let detailVC = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+                detailVC.foodName = foodList[indexPath.row].foodName
+                detailVC.foodIngredients = foodList[indexPath.row].foodIngredients
+                detailVC.foodTime = foodList[indexPath.row].foodTime
+                detailVC.foodImageName = foodList[indexPath.row].foodImage
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        print("running here")
+        tableView.deselectRow(at: indexPath, animated: true)
         searchController.isActive = false
     }
 

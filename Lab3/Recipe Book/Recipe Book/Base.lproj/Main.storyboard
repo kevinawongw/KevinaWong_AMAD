@@ -90,7 +90,7 @@
         <!--Recipe Details-->
         <scene sceneID="lzX-OI-TH0">
             <objects>
-                <viewController id="JhS-bX-PNO" customClass="DetailViewController" customModule="Recipe_Book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="JhS-bX-PNO" customClass="DetailViewController" customModule="Recipe_Book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DU3-37-EpM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

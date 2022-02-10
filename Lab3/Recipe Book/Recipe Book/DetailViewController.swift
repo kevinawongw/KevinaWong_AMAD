@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Got: \(foodName)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

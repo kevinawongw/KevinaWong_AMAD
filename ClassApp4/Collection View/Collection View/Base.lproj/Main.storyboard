@@ -118,7 +118,13 @@
                             <constraint firstItem="3aX-1J-M4W" firstAttribute="top" secondItem="DI2-dO-TCp" secondAttribute="top" id="vSJ-Pa-8wp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4ry-2o-0H9"/>
+                    <navigationItem key="navigationItem" id="4ry-2o-0H9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="353-aM-1GS">
+                            <connections>
+                                <action selector="shareButton:" destination="JA4-4Z-2mJ" id="VEt-fE-DxD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="3aX-1J-M4W" id="fJf-tF-Lb5"/>
                     </connections>

@@ -27,6 +27,16 @@ class DetailViewController: UIViewController {
     }
     
 
+    @IBAction func shareButton(_ sender: UIBarButtonItem) {
+        var imageArray = [UIImage]()
+        imageArray.append(imageView.image!)
+        let shareScreen = UIActivityViewController(activityItems: imageArray, applicationActivities: nil)
+        shareScreen.modalPresentationStyle = .popover
+        shareScreen.popoverPresentationController?.barButtonItem = sender
+        present(shareScreen, animated: true, completion: nil)
+        
+        
+    }
     /*
     // MARK: - Navigation
 
