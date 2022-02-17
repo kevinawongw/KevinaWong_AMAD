@@ -18,6 +18,7 @@
 		0A5EC4EE27BDE0C1001A9E2F /* recipesCanMake.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC4ED27BDE0C1001A9E2F /* recipesCanMake.plist */; };
 		0A5EC4F027BDE4FD001A9E2F /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC4EF27BDE4FD001A9E2F /* RecipeData.swift */; };
 		0A5EC4F227BDE53B001A9E2F /* RecipeDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EC4F127BDE53A001A9E2F /* RecipeDataLoader.swift */; };
+		0A5EC4F427BDE951001A9E2F /* farmData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EC4F327BDE950001A9E2F /* farmData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		0A5EC4ED27BDE0C1001A9E2F /* recipesCanMake.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = recipesCanMake.plist; sourceTree = "<group>"; };
 		0A5EC4EF27BDE4FD001A9E2F /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		0A5EC4F127BDE53A001A9E2F /* RecipeDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataLoader.swift; sourceTree = "<group>"; };
+		0A5EC4F327BDE950001A9E2F /* farmData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = farmData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				0A5EC4F127BDE53A001A9E2F /* RecipeDataLoader.swift */,
 				0A5EC4DA27BDE040001A9E2F /* Actions.sks */,
 				0A5EC4DC27BDE040001A9E2F /* GameScene.swift */,
+				0A5EC4F327BDE950001A9E2F /* farmData.plist */,
 				0A5EC4DE27BDE040001A9E2F /* GameViewController.swift */,
 				0A5EC4E027BDE040001A9E2F /* Main.storyboard */,
 				0A5EC4E327BDE04C001A9E2F /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 				0A5EC4EE27BDE0C1001A9E2F /* recipesCanMake.plist in Resources */,
 				0A5EC4D927BDE040001A9E2F /* GameScene.sks in Resources */,
 				0A5EC4E427BDE04C001A9E2F /* Assets.xcassets in Resources */,
+				0A5EC4F427BDE951001A9E2F /* farmData.plist in Resources */,
 				0A5EC4E727BDE04C001A9E2F /* LaunchScreen.storyboard in Resources */,
 				0A5EC4DB27BDE040001A9E2F /* Actions.sks in Resources */,
 			);
