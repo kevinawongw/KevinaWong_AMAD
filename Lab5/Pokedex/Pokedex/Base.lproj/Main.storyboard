@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ijr-fW-gGs">
-                                <rect key="frame" x="93.5" y="32" width="480" height="330"/>
+                                <rect key="frame" x="96" y="32" width="475" height="330"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="gog-AF-EcO">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -64,19 +64,19 @@
                                         </variation>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7xf-V7-PhA">
-                                        <rect key="frame" x="130" y="0.0" width="350" height="330"/>
+                                        <rect key="frame" x="108" y="0.0" width="367" height="320"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="330" id="H3A-t5-llZ"/>
+                                            <constraint firstAttribute="height" constant="320" id="2kk-zz-NxZ"/>
                                             <constraint firstAttribute="width" constant="350" id="gHw-2C-6HJ"/>
                                             <constraint firstAttribute="width" constant="450" id="jgP-LD-tK1"/>
                                         </constraints>
                                         <color key="separatorColor" red="0.97987657790000005" green="0.99404579400000004" blue="0.92693781850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemonCell" id="Bo3-ev-dNz">
-                                                <rect key="frame" x="0.0" y="44.5" width="350" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="367" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bo3-ev-dNz" id="Brk-m8-sMf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,14 +87,8 @@
                                         </prototypes>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="H3A-t5-llZ"/>
                                                 <exclude reference="gHw-2C-6HJ"/>
                                                 <exclude reference="jgP-LD-tK1"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="H3A-t5-llZ"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular">
@@ -114,23 +108,20 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7xf-V7-PhA" firstAttribute="leading" secondItem="gog-AF-EcO" secondAttribute="trailing" constant="30" id="e9F-Qi-8qt"/>
+                                    <constraint firstItem="7xf-V7-PhA" firstAttribute="leading" secondItem="gog-AF-EcO" secondAttribute="trailing" constant="8" symbolic="YES" id="DHH-vb-rCi"/>
                                     <constraint firstAttribute="height" constant="350" id="gqe-a3-cPY"/>
-                                    <constraint firstAttribute="width" constant="480" id="t89-Oc-Qga"/>
-                                    <constraint firstAttribute="bottom" secondItem="7xf-V7-PhA" secondAttribute="bottom" id="tcg-j5-j50"/>
+                                    <constraint firstAttribute="width" constant="475" id="t89-Oc-Qga"/>
+                                    <constraint firstAttribute="bottom" secondItem="7xf-V7-PhA" secondAttribute="bottom" constant="10" id="tcg-j5-j50"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="gqe-a3-cPY"/>
                                         <exclude reference="t89-Oc-Qga"/>
-                                        <exclude reference="e9F-Qi-8qt"/>
-                                        <exclude reference="tcg-j5-j50"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" alignment="top" axis="horizontal" distribution="equalCentering">
                                     <mask key="constraints">
                                         <include reference="t89-Oc-Qga"/>
-                                        <include reference="e9F-Qi-8qt"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" alignment="top" axis="horizontal" distribution="equalSpacing" spacing="70">
@@ -154,7 +145,6 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="S7Z-pK-i8F"/>
-                                <exclude reference="0ie-fq-pxk"/>
                                 <exclude reference="Gfk-EL-ivx"/>
                                 <exclude reference="IrC-0n-TiL"/>
                                 <exclude reference="OlU-wV-Ilf"/>
@@ -164,7 +154,6 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="0ie-fq-pxk"/>
                                 <include reference="IrC-0n-TiL"/>
                             </mask>
                         </variation>
@@ -190,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.43601895734594" y="92.307692307692307"/>
+            <point key="canvasLocation" x="928.78560719640188" y="93.599999999999994"/>
         </scene>
         <!--Pokedex Entry-->
         <scene sceneID="XBI-Kw-qJF">
@@ -313,11 +302,9 @@
                                         <exclude reference="sCh-qL-aa1"/>
                                         <exclude reference="6ts-DF-HyE"/>
                                         <exclude reference="8ns-Cs-hvN"/>
-                                        <exclude reference="Lef-TK-Yhi"/>
                                         <exclude reference="Mub-sa-RXb"/>
                                         <exclude reference="sDF-MB-YqA"/>
                                         <exclude reference="yTj-Mt-I1P"/>
-                                        <exclude reference="yUD-Cg-JCJ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact">
