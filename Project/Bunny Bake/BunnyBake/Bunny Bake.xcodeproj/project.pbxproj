@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */; };
+		0A48D47727D42D6B009C2AD6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */; };
+		0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */; };
+		660806CF198EB5CA00F44B65 /* StateImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660806CE198EB5CA00F44B65 /* StateImageHandler.swift */; };
+		660806D4198EB5F200F44B65 /* gamedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 660806D1198EB5F200F44B65 /* gamedata.plist */; };
+		660CB39C197433310056DB9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB39B197433310056DB9E /* AppDelegate.swift */; };
+		660CB3A0197433310056DB9E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB39F197433310056DB9E /* GameScene.swift */; };
+		660CB3A2197433310056DB9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB3A1197433310056DB9E /* GameViewController.swift */; };
+		660CB3A5197433310056DB9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 660CB3A3197433310056DB9E /* Main.storyboard */; };
+		660CB3A7197433310056DB9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660CB3A6197433310056DB9E /* Images.xcassets */; };
+		660CB3C419743ECA0056DB9E /* FarmItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB3C319743ECA0056DB9E /* FarmItem.swift */; };
+		660CB3C8197447670056DB9E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB3C7197447670056DB9E /* Constants.swift */; };
+		668ED1631974938D00243435 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668ED1621974938D00243435 /* GameDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
+		0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		660806CE198EB5CA00F44B65 /* StateImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateImageHandler.swift; sourceTree = "<group>"; };
+		660806D1198EB5F200F44B65 /* gamedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gamedata.plist; sourceTree = "<group>"; };
+		660CB396197433310056DB9E /* Bunny Bake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bunny Bake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		660CB39A197433310056DB9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		660CB39B197433310056DB9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		660CB39F197433310056DB9E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		660CB3A1197433310056DB9E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		660CB3A4197433310056DB9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		660CB3A6197433310056DB9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		660CB3C319743ECA0056DB9E /* FarmItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarmItem.swift; sourceTree = "<group>"; };
+		660CB3C7197447670056DB9E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		668ED1621974938D00243435 /* GameDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		660CB393197433310056DB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A48D47827D43132009C2AD6 /* ScenesStoryboards */ = {
+			isa = PBXGroup;
+			children = (
+				660CB39B197433310056DB9E /* AppDelegate.swift */,
+				0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */,
+				660CB3A3197433310056DB9E /* Main.storyboard */,
+			);
+			name = ScenesStoryboards;
+			sourceTree = "<group>";
+		};
+		0A48D47A27D435B6009C2AD6 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				660CB39A197433310056DB9E /* Info.plist */,
+				660806D1198EB5F200F44B65 /* gamedata.plist */,
+			);
+			name = plist;
+			sourceTree = "<group>";
+		};
+		660CB38D197433310056DB9E = {
+			isa = PBXGroup;
+			children = (
+				660CB398197433310056DB9E /* BunnyBake */,
+				660CB397197433310056DB9E /* Products */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+		};
+		660CB397197433310056DB9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				660CB396197433310056DB9E /* Bunny Bake.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		660CB398197433310056DB9E /* BunnyBake */ = {
+			isa = PBXGroup;
+			children = (
+				0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */,
+				660CB3C7197447670056DB9E /* Constants.swift */,
+				660CB39F197433310056DB9E /* GameScene.swift */,
+				660CB3A1197433310056DB9E /* GameViewController.swift */,
+				660CB3C319743ECA0056DB9E /* FarmItem.swift */,
+				668ED1621974938D00243435 /* GameDelegate.swift */,
+				660806CE198EB5CA00F44B65 /* StateImageHandler.swift */,
+				0A48D47827D43132009C2AD6 /* ScenesStoryboards */,
+				660CB3C21974394E0056DB9E /* Resources */,
+				0A48D47A27D435B6009C2AD6 /* plist */,
+			);
+			path = BunnyBake;
+			sourceTree = "<group>";
+		};
+		660CB3C21974394E0056DB9E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */,
+				660CB3A6197433310056DB9E /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		660CB395197433310056DB9E /* Bunny Bake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 660CB3B6197433310056DB9E /* Build configuration list for PBXNativeTarget "Bunny Bake" */;
+			buildPhases = (
+				660CB392197433310056DB9E /* Sources */,
+				660CB393197433310056DB9E /* Frameworks */,
+				660CB394197433310056DB9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bunny Bake";
+			productName = "KookieKiosk-Swift";
+			productReference = 660CB396197433310056DB9E /* Bunny Bake.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		660CB38E197433310056DB9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					660CB395197433310056DB9E = {
+						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 660CB391197433310056DB9E /* Build configuration list for PBXProject "Bunny Bake" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 660CB38D197433310056DB9E;
+			productRefGroup = 660CB397197433310056DB9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				660CB395197433310056DB9E /* Bunny Bake */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		660CB394197433310056DB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660CB3A7197433310056DB9E /* Images.xcassets in Resources */,
+				660806D4198EB5F200F44B65 /* gamedata.plist in Resources */,
+				0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */,
+				660CB3A5197433310056DB9E /* Main.storyboard in Resources */,
+				0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		660CB392197433310056DB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660CB3A0197433310056DB9E /* GameScene.swift in Sources */,
+				660806CF198EB5CA00F44B65 /* StateImageHandler.swift in Sources */,
+				660CB3C419743ECA0056DB9E /* FarmItem.swift in Sources */,
+				660CB3A2197433310056DB9E /* GameViewController.swift in Sources */,
+				668ED1631974938D00243435 /* GameDelegate.swift in Sources */,
+				0A48D47727D42D6B009C2AD6 /* NavigationBar.swift in Sources */,
+				660CB39C197433310056DB9E /* AppDelegate.swift in Sources */,
+				660CB3C8197447670056DB9E /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		660CB3A3197433310056DB9E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				660CB3A4197433310056DB9E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		660CB3B4197433310056DB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		660CB3B5197433310056DB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		660CB3B7197433310056DB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = BunnyBake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TUM.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		660CB3B8197433310056DB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = BunnyBake/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TUM.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		660CB391197433310056DB9E /* Build configuration list for PBXProject "Bunny Bake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660CB3B4197433310056DB9E /* Debug */,
+				660CB3B5197433310056DB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		660CB3B6197433310056DB9E /* Build configuration list for PBXNativeTarget "Bunny Bake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660CB3B7197433310056DB9E /* Debug */,
+				660CB3B8197433310056DB9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 660CB38E197433310056DB9E /* Project object */;
+}
