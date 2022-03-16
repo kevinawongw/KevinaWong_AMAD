@@ -12,13 +12,13 @@ class GameScene: SKScene {
   override func didMove(to view: SKView) {
     NotificationCenter.default.addObserver(self, selector: #selector(saveGameData), name: NSNotification.Name(rawValue: "saveGameData"), object: nil)
     
-    // Draw background
+    // Background
     let background = SKSpriteNode(imageNamed: "plant_background")
     background.position = CGPoint(x: size.width/2, y: size.height/2)
     background.zPosition = CGFloat(ZPosition.background.rawValue)
     addChild(background)
     
-    // Draw HUD in top right corner that displays the amount of money the player has
+    // Money Display
     let moneyBackground = SKSpriteNode(imageNamed: "money_background")
     moneyBackground.position = CGPoint(x: size.width - moneyBackground.size.width/2 - 10, y: size.height - moneyBackground.size.height/2 - 13)
     moneyBackground.zPosition = CGFloat(ZPosition.HUDBackground.rawValue)
@@ -37,7 +37,7 @@ class GameScene: SKScene {
   
   // MARK: - Load and save plist file
   @objc func saveGameData() {
-    let path = documentFilePath(fileName: "gamedata.plist")
+    let path = documentFilePath(fileName: "../plist/gamedata.plist")
     let farmData = NSMutableArray()
     for farmItem : FarmItem in farmItems {
       farmData.add(farmItem.data())
@@ -47,6 +47,7 @@ class GameScene: SKScene {
     for (key, stockItemConfiguration) in stockItemConfigurations {
       stockItemConfigurationsKeys.append(key as NSCopying)
       stockItemConfigurationsObjects.append(stockItemConfiguration as AnyObject)
+
     }
     
     let stockItemConfigurationsNSDictionary = NSDictionary(objects: stockItemConfigurationsObjects, forKeys: stockItemConfigurationsKeys)
@@ -57,7 +58,7 @@ class GameScene: SKScene {
   }
   
   func loadGameData() {
-    var path = documentFilePath(fileName: "gamedata.plist")
+    var path = documentFilePath(fileName: "../plist/gamedata.plist")
     var gameData : NSDictionary? = NSDictionary(contentsOfFile: path)
     // Load gamedata template from mainBundle if no saveFile exists
     if gameData == nil {
@@ -99,7 +100,7 @@ extension GameScene: GameDelegate {
     }
     let deltaLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
     if delta < 0 {
-      deltaLabel.fontColor = SKColor(red: 198/255.0, green: 139/255.0, blue: 207/255.0, alpha: 1.0)
+      deltaLabel.fontColor = SKColor(red: 244/255.0, green: 80/255.0, blue: 80/255.0, alpha: 1.0)
     } else {
       deltaLabel.fontColor = SKColor(red: 156/255.0, green: 179/255.0, blue: 207/255.0, alpha: 1.0)
     }
@@ -121,6 +122,7 @@ extension GameScene: GameDelegate {
     
     return true
   }
+
   
   override func update(_ currentTime: TimeInterval) {
     for item in farmItems {

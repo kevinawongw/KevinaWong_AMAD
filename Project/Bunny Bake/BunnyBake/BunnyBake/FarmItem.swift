@@ -17,10 +17,12 @@ class FarmItem: SKNode {
   private let sellingSpeed: Float
   private let stockingPrice: Int
   private let sellingPrice: Int
+  private let stateAsInt: Int
+  let itemPosition: CGPoint
   
   private var gameDelegate: GameDelegate
   
-  private var stockingTimer = SKLabelNode(fontNamed: "PressStart2P-Regular")
+  private var timer = SKLabelNode(fontNamed: "PressStart2P-Regular")
   private var stateImageHandler: StateImageHandler
   private var plantButton = SKSpriteNode(imageNamed: "plant_button")
   
@@ -28,6 +30,7 @@ class FarmItem: SKNode {
     
     self.gameDelegate = gameDelegate
     
+
     // initialize item from data
     // instead of loadValuesWithData method
     maxAmount = (stockItemConfiguration["maxAmount"]?.intValue)!
@@ -40,6 +43,8 @@ class FarmItem: SKNode {
     amount = stockItemData["amount"] as AnyObject? as! Int
     relativeX = Float(stockItemData["x"] as AnyObject? as! Double)
     relativeY = Float(stockItemData["y"] as AnyObject? as! Double)
+    let stateNum = Float(stockItemData["state"] as AnyObject? as! Double)
+    stateAsInt = Int(stateNum)
     
     var relativeTimerPositionX: Float? = stockItemConfiguration["timerPositionX"]?.floatValue
     if relativeTimerPositionX == nil {
@@ -54,15 +59,15 @@ class FarmItem: SKNode {
     
     stateImageHandler = StateImageHandler(type: type)
     
-    let stateAsObject: AnyObject? = stockItemData["state"]
-    let stateAsInt = stateAsObject as! Int
     state = State(rawValue: stateAsInt)!
     lastStateSwitchTime = stockItemData["lastStateSwitchTime"] as AnyObject? as! CFAbsoluteTime
 
+    itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
+    
     
     super.init()
     setupPriceLabel()
-    setupStockingTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
+    setupTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
     
     addChild(stateImageHandler.node)
     isUserInteractionEnabled = true
@@ -70,7 +75,7 @@ class FarmItem: SKNode {
     if type == "plant"{
       addChild(plantButton)
     }
-    addChild(stockingTimer)
+    addChild(timer)
     switchTo(state: state)
 
   }
@@ -90,13 +95,13 @@ class FarmItem: SKNode {
       plantButton.addChild(plantLabel)
     }
   
-  func setupStockingTimer(relativeX: Float, relativeY: Float) {
+  func setupTimer(relativeX: Float, relativeY: Float) {
     // Create stocking Timer
-    stockingTimer.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
-    stockingTimer.fontSize = 20
-    stockingTimer.fontColor = SKColor(red: 255/255.0, green: 30/255.0, blue: 5/255.0, alpha: 1.0)
-    stockingTimer.position = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
-    stockingTimer.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
+    timer.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+    timer.fontSize = 20
+    timer.fontColor = SKColor(red:255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    timer.position = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
+    timer.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
   }
   
   // MARK: - Write dictionary for storage of StockItem
@@ -108,7 +113,7 @@ class FarmItem: SKNode {
     data["x"] = relativeX
     data["y"] = relativeY
     data["lastStateSwitchTime"] = lastStateSwitchTime
-
+    data["state"] = lastStateSwitchTime
     return data
   }
   
@@ -121,16 +126,16 @@ class FarmItem: SKNode {
     if type == "plant"{
       switch state {
       case .empty:
-        stockingTimer.isHidden = true
+        timer.isHidden = true
         plantButton.isHidden = false
         stateImageHandler.updateImagefromStage(stage: 0)
       case .planting:
-        stockingTimer.isHidden = false
+        timer.isHidden = false
         plantButton.isHidden = true
         stateImageHandler.updateImagefromStage(stage: 1)
 
       case .harvest:
-        stockingTimer.isHidden = true
+        timer.isHidden = true
         plantButton.isHidden = true
         stateImageHandler.updateImagefromStage(stage: 2)
       }
@@ -139,12 +144,12 @@ class FarmItem: SKNode {
       if species == "cow" {
         switch state {
         case .planting:
-          stockingTimer.isHidden = false
+          timer.isHidden = false
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 0)
 
         case .harvest:
-          stockingTimer.isHidden = true
+          timer.isHidden = true
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 1)
         case .empty:
@@ -154,12 +159,12 @@ class FarmItem: SKNode {
       else{
         switch state {
         case .planting:
-          stockingTimer.isHidden = false
+          timer.isHidden = false
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 2)
 
         case .harvest:
-          stockingTimer.isHidden = true
+          timer.isHidden = true
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 3)
         case .empty:
@@ -179,6 +184,7 @@ class FarmItem: SKNode {
         let playSound = SKAction.playSoundFileNamed("hit.wav", waitForCompletion: true)
         run(playSound)
         
+        // Shake "Plant Sign" if the user can't afford to plant
         let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
         let rotateRight = rotateLeft.reversed()
         let shakeAction = SKAction.sequence([rotateLeft, rotateRight])
@@ -186,6 +192,8 @@ class FarmItem: SKNode {
         plantButton.run(repeatAction)
       }
     case .harvest:
+      harvestAnimation()
+      gameDelegate.updateMoney(by: stockingPrice * maxAmount)
       switchTo(state: .empty)
     default:
       break
@@ -197,8 +205,41 @@ class FarmItem: SKNode {
     let currentTime = CFAbsoluteTimeGetCurrent()
     let timePassed = currentTime - lastStateSwitchTime
     let stockingTimeLeft = stockingTimeTotal - timePassed
-    stockingTimer.text = String(format: "%.0f", stockingTimeLeft)
+    timer.text = String(Int(stockingTimeLeft))
   }
+  
+  func harvestAnimation() -> Bool {
+
+    let harvestLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
+
+    harvestLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    
+    harvestLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+    harvestLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.bottom
+    harvestLabel.position = itemPosition
+    if species == "cow"{
+      harvestLabel.text = "+2 Milk & Cream"
+    }
+    else if species == "chicken"{
+      harvestLabel.text = "+3 Eggs"
+    }
+    else {
+      harvestLabel.text = "+5 Wheat"
+    }
+    
+    harvestLabel.fontSize = 20
+    harvestLabel.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
+    addChild(harvestLabel)
+    
+    // Fade Animation for Adding
+    let moveLabelAction = SKAction.move(by: CGVector(dx: 0, dy: 20), duration: 10)
+    let fadeLabelAction = SKAction.fadeOut(withDuration: 1.0)
+    let labelAction = SKAction.group([moveLabelAction, fadeLabelAction])
+    harvestLabel.run(labelAction, completion: {harvestLabel.removeFromParent()})
+    
+    return true
+  }
+  
   
   func update() {
     let currentTimeAbsolute = CFAbsoluteTimeGetCurrent()

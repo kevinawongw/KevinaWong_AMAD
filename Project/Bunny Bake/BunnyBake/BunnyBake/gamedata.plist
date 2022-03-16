@@ -40,14 +40,14 @@
 	<key>stockItemData</key>
 	<array>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
-			<string>cow</string>
+			<string>HI</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>animal</string>
 			<key>x</key>
@@ -58,14 +58,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>cow</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>animal</string>
 			<key>x</key>
@@ -76,14 +76,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>chicken</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>animal</string>
 			<key>x</key>
@@ -94,14 +94,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>chicken</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>animal</string>
 			<key>x</key>
@@ -112,14 +112,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>plant</string>
 			<key>x</key>
@@ -130,14 +130,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>0</real>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>plant</string>
 			<key>x</key>
@@ -148,14 +148,14 @@
 			<integer>-1</integer>
 		</dict>
 		<dict>
+			<key>state</key>
+			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
-			<key>state</key>
-			<integer>0</integer>
 			<key>type</key>
 			<string>plant</string>
 			<key>x</key>

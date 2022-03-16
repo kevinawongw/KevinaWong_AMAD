@@ -64,8 +64,8 @@
 		0A48D47A27D435B6009C2AD6 /* plist */ = {
 			isa = PBXGroup;
 			children = (
-				660CB39A197433310056DB9E /* Info.plist */,
 				660806D1198EB5F200F44B65 /* gamedata.plist */,
+				660CB39A197433310056DB9E /* Info.plist */,
 			);
 			name = plist;
 			sourceTree = "<group>";
