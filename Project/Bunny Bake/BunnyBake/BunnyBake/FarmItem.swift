@@ -29,8 +29,7 @@ class FarmItem: SKNode {
   init(stockItemData: [String: AnyObject], stockItemConfiguration: [String: NSNumber], gameDelegate: GameDelegate) {
     
     self.gameDelegate = gameDelegate
-    
-
+  
     // initialize item from data
     // instead of loadValuesWithData method
     maxAmount = (stockItemConfiguration["maxAmount"]?.intValue)!

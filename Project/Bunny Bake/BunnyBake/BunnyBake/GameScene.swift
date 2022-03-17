@@ -28,7 +28,7 @@ class GameScene: SKScene {
     moneyLabel.fontSize = 40
     addChild(moneyLabel)
     
-    loadGameData()
+    load()
   }
   
   // MARK: - Load and save plist file
@@ -53,13 +53,11 @@ class GameScene: SKScene {
 //    gameData.write(toFile: path, atomically: true)
 //  }
   
-  func loadGameData() {
+  func load() {
     
     // Get path and read data from path
     let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
     let savedData = NSDictionary(contentsOfFile: path)
-    print("=== READING FROM \(String(describing: path)) \(String(describing: savedData)) ===")
-    
     
     gameData = savedData!["stockItemConfigurations"] as! [String: [String: NSNumber]]
     money = savedData!["money"] as! Int
@@ -70,11 +68,18 @@ class GameScene: SKScene {
     
     // Load Items and Crops
     for item in itemList {
-      let itemType = item["type"] as AnyObject? as! String
+      
+      // type
+      let itemType = item["type"] as! String
+      // species
+      let itemSpecies = item["species"] as! String
+      print("+== Loading in \(itemSpecies)... ==+")
       let stockItemConfiguration = gameData[itemType] as [String: NSNumber]?
       let loadItem  = FarmItem(stockItemData: item, stockItemConfiguration: stockItemConfiguration!, gameDelegate: self)
-      let relativeX = Float(item["x"] as AnyObject? as! Double)
-      let relativeY = Float(item["y"] as AnyObject? as! Double)
+      // x
+      let relativeX = Float(item["x"] as! Double)
+      // y
+      let relativeY = Float(item["y"] as! Double)
       loadItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
       addChild(loadItem)
       farmItems.append(loadItem)
