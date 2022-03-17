@@ -2,7 +2,7 @@ import SpriteKit
 
 class FarmItem: SKNode {
   
-  // "Animal" or "Plant"
+  // MARK: Variables for Item
   let type: String
   let species: String
   private var amount: Int
@@ -10,7 +10,9 @@ class FarmItem: SKNode {
   private var lastStateSwitchTime: CFAbsoluteTime
   var x: Double
   var y: Double
+  let itemPosition: CGPoint
 
+  // MARK: Set Values for Type
   private let maxAmount: Int
   private let relativeX: Float
   private let relativeY: Float
@@ -18,14 +20,15 @@ class FarmItem: SKNode {
   private let sellingSpeed: Float
   private let stockingPrice: Int
   private let sellingPrice: Int
-  let itemPosition: CGPoint
   
   private var gameDelegate: GameDelegate
   
+  // MARK: Game Scene Items (Timers, Buttons, etc.)
   private var timer = SKLabelNode(fontNamed: "PressStart2P-Regular")
   private var stateImageHandler: StateImageHandler
   private var plantButton = SKSpriteNode(imageNamed: "plant_button")
   
+  // MARK: Constructor
   init(state: Int, species: String, amount: Int, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
     
     self.gameDelegate = gameDelegate
@@ -58,7 +61,7 @@ class FarmItem: SKNode {
     itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
     
     super.init()
-    setupPriceLabel()
+    setPlantButton()
     setupTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
     
     addChild(stateImageHandler.node)
@@ -75,19 +78,14 @@ class FarmItem: SKNode {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func setupPriceLabel() {
-    // Create price label tag
-      let plantLabel = SKLabelNode(fontNamed: "TrebuchetMS-Bold")
-      plantLabel.fontSize = 24
-      plantLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
-      plantLabel.fontColor = SKColor.black
-      plantLabel.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
+  
+  // MARK: Additional Functions
+  
+  func setPlantButton() {
       plantButton.zPosition = CGFloat(ZPosition.HUDBackground.rawValue)
-      plantButton.addChild(plantLabel)
     }
   
   func setupTimer(relativeX: Float, relativeY: Float) {
-    // Create stocking Timer
     timer.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
     timer.fontSize = 20
     timer.fontColor = SKColor(red:255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
@@ -95,7 +93,7 @@ class FarmItem: SKNode {
     timer.zPosition = CGFloat(ZPosition.HUDForeground.rawValue)
   }
   
-  // MARK: - Write dictionary for storage of StockItem
+  // MARK: - Data
   func data() -> NSDictionary {
     let data = NSMutableDictionary()
     data["type"] = type
