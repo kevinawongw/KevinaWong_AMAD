@@ -79,7 +79,7 @@ class FarmItem: SKNode {
   }
   
   
-  // MARK: Additional Functions
+  // MARK: Setting up buttons and text
   
   func setPlantButton() {
       plantButton.zPosition = CGFloat(ZPosition.HUDBackground.rawValue)
@@ -106,11 +106,13 @@ class FarmItem: SKNode {
     return data
   }
   
+  // MARK: State Handling
+  
   func switchTo(state: State) {
     if self.state != state {
       lastStateSwitchTime = CFAbsoluteTimeGetCurrent()
     }
-
+    
     self.state = state
     if type == "plant"{
       switch state {
@@ -165,28 +167,21 @@ class FarmItem: SKNode {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     switch state {
-    case .empty:
-      let bought = gameDelegate.updateMoney(by: -stockingPrice * maxAmount)
-      if bought {
-        switchTo(state: .planting)
-      } else {
-        let playSound = SKAction.playSoundFileNamed("hit.wav", waitForCompletion: true)
-        run(playSound)
-        
-        // Shake "Plant Sign" if the user can't afford to plant
-        let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
-        let rotateRight = rotateLeft.reversed()
-        let shakeAction = SKAction.sequence([rotateLeft, rotateRight])
-        let repeatAction = SKAction.repeat(shakeAction, count: 3)
-        plantButton.run(repeatAction)
+      case .empty:
+        let bought = gameDelegate.updateMoney(by: -stockingPrice * maxAmount)
+        if bought {
+          switchTo(state: .planting)
+        }
+        else {
+          plantButton.run(shakeItemAnimation())
+        }
+      case .harvest:
+        harvestAnimation()
+        gameDelegate.updateMoney(by: stockingPrice * maxAmount)
+        switchTo(state: .empty)
+      default:
+        break
       }
-    case .harvest:
-      harvestAnimation()
-      gameDelegate.updateMoney(by: stockingPrice * maxAmount)
-      switchTo(state: .empty)
-    default:
-      break
-    }
   }
   
   func updateStockingTimerText() {
@@ -221,10 +216,8 @@ class FarmItem: SKNode {
     addChild(harvestLabel)
     
     // Fade Animation for Adding
-    let moveLabelAction = SKAction.move(by: CGVector(dx: 0, dy: 20), duration: 10)
-    let fadeLabelAction = SKAction.fadeOut(withDuration: 1.0)
-    let labelAction = SKAction.group([moveLabelAction, fadeLabelAction])
-    harvestLabel.run(labelAction, completion: {harvestLabel.removeFromParent()})
+    
+    harvestLabel.run(fadingText(), completion: {harvestLabel.removeFromParent()})
     
     return true
   }
@@ -246,4 +239,20 @@ class FarmItem: SKNode {
     }
   }
 
+  // MARK: Animation
+  
+  func shakeItemAnimation() -> SKAction {
+    let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
+    let rotateRight = rotateLeft.reversed()
+    let shakeAction = SKAction.sequence([rotateLeft, rotateRight])
+    let shake = SKAction.repeat(shakeAction, count: 3)
+    return shake
+  }
+  
+  func fadingText() -> SKAction {
+    let moveLabel = SKAction.move(by: CGVector(dx: 0, dy: 20), duration: 10)
+    let fadeLabel = SKAction.fadeOut(withDuration: 1.0)
+    let fadingTextAction = SKAction.group([moveLabel, fadeLabel])
+    return fadingTextAction
+  }
 }
