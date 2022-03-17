@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>money</key>
-	<integer>60</integer>
+	<integer>100</integer>
 	<key>stockItemConfigurations</key>
 	<dict>
 		<key>animal</key>
@@ -43,7 +43,7 @@
 			<key>state</key>
 			<integer>0</integer>
 			<key>species</key>
-			<string>cow</string>
+			<string>HI</string>
 			<key>amount</key>
 			<integer>0</integer>
 			<key>lastStateSwitchTime</key>

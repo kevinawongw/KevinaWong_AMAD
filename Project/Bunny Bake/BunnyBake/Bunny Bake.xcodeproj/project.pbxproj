@@ -10,6 +10,7 @@
 		0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */; };
 		0A48D47727D42D6B009C2AD6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */; };
 		0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */; };
+		0A8E66AE27E3D38300E4BA64 /* saveData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8E66AD27E3D38300E4BA64 /* saveData.plist */; };
 		660806CF198EB5CA00F44B65 /* StateImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660806CE198EB5CA00F44B65 /* StateImageHandler.swift */; };
 		660806D4198EB5F200F44B65 /* gamedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 660806D1198EB5F200F44B65 /* gamedata.plist */; };
 		660CB39C197433310056DB9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB39B197433310056DB9E /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		0A8E66AD27E3D38300E4BA64 /* saveData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = saveData.plist; sourceTree = "<group>"; };
 		660806CE198EB5CA00F44B65 /* StateImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateImageHandler.swift; sourceTree = "<group>"; };
 		660806D1198EB5F200F44B65 /* gamedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gamedata.plist; sourceTree = "<group>"; };
 		660CB396197433310056DB9E /* Bunny Bake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bunny Bake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			children = (
 				660806D1198EB5F200F44B65 /* gamedata.plist */,
 				660CB39A197433310056DB9E /* Info.plist */,
+				0A8E66AD27E3D38300E4BA64 /* saveData.plist */,
 			);
 			name = plist;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				660CB3A7197433310056DB9E /* Images.xcassets in Resources */,
 				660806D4198EB5F200F44B65 /* gamedata.plist in Resources */,
 				0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */,
+				0A8E66AE27E3D38300E4BA64 /* saveData.plist in Resources */,
 				660CB3A5197433310056DB9E /* Main.storyboard in Resources */,
 				0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */,
 			);
