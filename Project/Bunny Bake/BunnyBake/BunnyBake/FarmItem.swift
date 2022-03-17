@@ -8,6 +8,8 @@ class FarmItem: SKNode {
   private var amount: Int
   var state: State
   private var lastStateSwitchTime: CFAbsoluteTime
+  var x: Double
+  var y: Double
 
   
   private let maxAmount: Int
@@ -17,7 +19,6 @@ class FarmItem: SKNode {
   private let sellingSpeed: Float
   private let stockingPrice: Int
   private let sellingPrice: Int
-  private let stateAsInt: Int
   let itemPosition: CGPoint
   
   private var gameDelegate: GameDelegate
@@ -26,43 +27,36 @@ class FarmItem: SKNode {
   private var stateImageHandler: StateImageHandler
   private var plantButton = SKSpriteNode(imageNamed: "plant_button")
   
-  init(stockItemData: [String: AnyObject], stockItemConfiguration: [String: NSNumber], gameDelegate: GameDelegate) {
+  init(state: Int, species: String, amount: Int, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
     
     self.gameDelegate = gameDelegate
-  
-    // initialize item from data
-    // instead of loadValuesWithData method
-    maxAmount = (stockItemConfiguration["maxAmount"]?.intValue)!
-    stockingSpeed = (stockItemConfiguration["stockingSpeed"]?.floatValue)! * TimeScale
-    sellingSpeed = (stockItemConfiguration["sellingSpeed"]?.floatValue)! * TimeScale
-    stockingPrice = (stockItemConfiguration["stockingPrice"]?.intValue)!
-    sellingPrice = (stockItemConfiguration["sellingPrice"]?.intValue)!
+    self.species = species
+    self.amount = amount
+    self.lastStateSwitchTime = lastStateSwitchTime
+    self.type = type
+    self.state = State(rawValue: state)!
+    self.x = x
+    self.y = y
+    self.relativeX = Float(x)
+    self.relativeY = Float(y)
     
-    type = stockItemData["type"] as AnyObject? as! String
-    amount = stockItemData["amount"] as AnyObject? as! Int
-    relativeX = Float(stockItemData["x"] as AnyObject? as! Double)
-    relativeY = Float(stockItemData["y"] as AnyObject? as! Double)
-    let stateNum = Float(stockItemData["state"] as AnyObject? as! Double)
-    stateAsInt = Int(stateNum)
+    maxAmount = (gameConstSettings["maxAmount"]?.intValue)!
+    stockingSpeed = (gameConstSettings["stockingSpeed"]?.floatValue)! * TimeScale
+    sellingSpeed = (gameConstSettings["sellingSpeed"]?.floatValue)! * TimeScale
+    stockingPrice = (gameConstSettings["stockingPrice"]?.intValue)!
+    sellingPrice = (gameConstSettings["sellingPrice"]?.intValue)!
     
-    var relativeTimerPositionX: Float? = stockItemConfiguration["timerPositionX"]?.floatValue
+    var relativeTimerPositionX: Float? = gameConstSettings["timerPositionX"]?.floatValue
     if relativeTimerPositionX == nil {
       relativeTimerPositionX = Float(0.0)
     }
-    var relativeTimerPositionY: Float? = stockItemConfiguration["timerPositionY"]?.floatValue
+    var relativeTimerPositionY: Float? = gameConstSettings["timerPositionY"]?.floatValue
     if relativeTimerPositionY == nil {
       relativeTimerPositionY = Float(0.0)
     }
-    
-    species = stockItemData["species"] as AnyObject? as! String
-    
+        
     stateImageHandler = StateImageHandler(type: type)
-    
-    state = State(rawValue: stateAsInt)!
-    lastStateSwitchTime = stockItemData["lastStateSwitchTime"] as AnyObject? as! CFAbsoluteTime
-
     itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
-    
     
     super.init()
     setupPriceLabel()
@@ -75,10 +69,64 @@ class FarmItem: SKNode {
       addChild(plantButton)
     }
     addChild(timer)
-    switchTo(state: state)
+    switchTo(state: self.state)
 
+    
   }
   
+//  init(stockItemData: [String: AnyObject], stockItemConfiguration: [String: NSNumber], gameDelegate: GameDelegate) {
+//
+//    self.gameDelegate = gameDelegate
+//
+//    // initialize item from data
+//    // instead of loadValuesWithData method
+//    maxAmount = (stockItemConfiguration["maxAmount"]?.intValue)!
+//    stockingSpeed = (stockItemConfiguration["stockingSpeed"]?.floatValue)! * TimeScale
+//    sellingSpeed = (stockItemConfiguration["sellingSpeed"]?.floatValue)! * TimeScale
+//    stockingPrice = (stockItemConfiguration["stockingPrice"]?.intValue)!
+//    sellingPrice = (stockItemConfiguration["sellingPrice"]?.intValue)!
+//
+//    type = stockItemData["type"] as! String
+//    amount = stockItemData["amount"] as! Int
+//    relativeX = Float(stockItemData["x"] as! Double)
+//    relativeY = Float(stockItemData["y"] as! Double)
+//    let stateNum = Float(stockItemData["state"] as! Double)
+//    stateAsInt = Int(stateNum)
+//
+//    var relativeTimerPositionX: Float? = stockItemConfiguration["timerPositionX"]?.floatValue
+//    if relativeTimerPositionX == nil {
+//      relativeTimerPositionX = Float(0.0)
+//    }
+//    var relativeTimerPositionY: Float? = stockItemConfiguration["timerPositionY"]?.floatValue
+//    if relativeTimerPositionY == nil {
+//      relativeTimerPositionY = Float(0.0)
+//    }
+//
+//    species = stockItemData["species"] as! String
+//
+//    stateImageHandler = StateImageHandler(type: type)
+//
+//    state = State(rawValue: stateAsInt)!
+//    lastStateSwitchTime = stockItemData["lastStateSwitchTime"] as AnyObject? as! CFAbsoluteTime
+//
+//    itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
+//
+//
+//    super.init()
+//    setupPriceLabel()
+//    setupTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
+//
+//    addChild(stateImageHandler.node)
+//    isUserInteractionEnabled = true
+//
+//    if type == "plant"{
+//      addChild(plantButton)
+//    }
+//    addChild(timer)
+//    switchTo(state: state)
+//
+//  }
+//
   required init(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

@@ -53,36 +53,46 @@ class GameScene: SKScene {
 //    gameData.write(toFile: path, atomically: true)
 //  }
   
+//  func save(){
+//    let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
+//    if FileManager.default.fileExists(atPath: path){
+//      game
+//    }
+//
+//  }
+//
   func load() {
     
     // Get path and read data from path
     let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
-    let savedData = NSDictionary(contentsOfFile: path)
-    
-    gameData = savedData!["stockItemConfigurations"] as! [String: [String: NSNumber]]
-    money = savedData!["money"] as! Int
-    moneyLabel.text = String("$\(money)")
-    
-    // Get list of animals and crops
-    let itemList = savedData!["stockItemData"] as! [[String: AnyObject]]
-    
-    // Load Items and Crops
-    for item in itemList {
+    if FileManager.default.fileExists(atPath: path){
+      let savedData = NSDictionary(contentsOfFile: path)
+  
+      money = savedData!["money"] as! Int
+      moneyLabel.text = String("$\(money)")
       
-      // type
-      let itemType = item["type"] as! String
-      // species
-      let itemSpecies = item["species"] as! String
-      print("+== Loading in \(itemSpecies)... ==+")
-      let stockItemConfiguration = gameData[itemType] as [String: NSNumber]?
-      let loadItem  = FarmItem(stockItemData: item, stockItemConfiguration: stockItemConfiguration!, gameDelegate: self)
-      // x
-      let relativeX = Float(item["x"] as! Double)
-      // y
-      let relativeY = Float(item["y"] as! Double)
-      loadItem.position = CGPoint(x: Int(relativeX * Float(size.width)), y: Int(relativeY * Float(size.height)))
-      addChild(loadItem)
-      farmItems.append(loadItem)
+      // Get list of animals and crops
+      let itemList = savedData!["stockItemData"] as! [[String: AnyObject]]
+      
+      // Load Items and Crops
+      for item in itemList {
+        
+        let itemState = item["state"] as! Int
+        let itemType = item["type"] as! String
+        let itemAmount = item["amount"] as! Int
+        let itemSpecies = item["species"] as! String
+        let itemLastSwitch = item["lastStateSwitchTime"] as! CFAbsoluteTime
+        let itemX = item["x"] as! Double
+        let itemY = item["y"] as! Double
+        let gameConstSettings = (gameData[itemType] as [String: NSNumber]?)!
+        
+        print("+== Loading in \(itemSpecies)... ==+")
+        let loadItem = FarmItem(state: itemState, species: itemSpecies, amount: itemAmount, lastStateSwitchTime: itemLastSwitch, type: itemType, x: itemX, y: itemY, gameConstSettings: gameConstSettings, gameDelegate: self)
+        
+        loadItem.position = CGPoint(x: Int(Float(itemX) * Float(size.width)), y: Int(Float(itemY) * Float(size.height)))
+        addChild(loadItem)
+        farmItems.append(loadItem)
+      }
     }
   }
   
@@ -122,7 +132,7 @@ extension GameScene: GameDelegate {
     deltaLabel.run(labelAction, completion: {deltaLabel.removeFromParent()})
     
     money += delta
-    moneyLabel.text = String(format: "%i $", money)
+    moneyLabel.text = String("$ \(money)")
     
     return true
   }

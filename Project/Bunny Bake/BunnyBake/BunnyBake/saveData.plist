@@ -4,7 +4,7 @@
 <dict>
 	<key>money</key>
 	<integer>100</integer>
-	<key>stockItemConfigurations</key>
+	<key>gameConstantSettings</key>
 	<dict>
 		<key>animal</key>
 		<dict>

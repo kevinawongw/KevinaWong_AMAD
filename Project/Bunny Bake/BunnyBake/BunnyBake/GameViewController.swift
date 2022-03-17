@@ -30,6 +30,15 @@ class GameViewController: UIViewController {
     if let view = self.view as! SKView? {
       if let scene = GameScene.unarchiveFromFile(file: "GameScene") as? GameScene {
         // Set the scale mode to scale to fit the window
+        
+        let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
+        if FileManager.default.fileExists(atPath: path){
+          let savedData = NSDictionary(contentsOfFile: path)
+          
+          scene.gameData = savedData!["gameConstantSettings"] as! [String: [String: NSNumber]]
+          print("+===== GAME DATA =====+")
+          print(scene.gameData)
+        }
         scene.scaleMode = .aspectFill
         
         // Present the scene
