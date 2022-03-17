@@ -11,7 +11,6 @@ class FarmItem: SKNode {
   var x: Double
   var y: Double
 
-  
   private let maxAmount: Int
   private let relativeX: Float
   private let relativeY: Float
@@ -70,63 +69,8 @@ class FarmItem: SKNode {
     }
     addChild(timer)
     switchTo(state: self.state)
-
-    
   }
   
-//  init(stockItemData: [String: AnyObject], stockItemConfiguration: [String: NSNumber], gameDelegate: GameDelegate) {
-//
-//    self.gameDelegate = gameDelegate
-//
-//    // initialize item from data
-//    // instead of loadValuesWithData method
-//    maxAmount = (stockItemConfiguration["maxAmount"]?.intValue)!
-//    stockingSpeed = (stockItemConfiguration["stockingSpeed"]?.floatValue)! * TimeScale
-//    sellingSpeed = (stockItemConfiguration["sellingSpeed"]?.floatValue)! * TimeScale
-//    stockingPrice = (stockItemConfiguration["stockingPrice"]?.intValue)!
-//    sellingPrice = (stockItemConfiguration["sellingPrice"]?.intValue)!
-//
-//    type = stockItemData["type"] as! String
-//    amount = stockItemData["amount"] as! Int
-//    relativeX = Float(stockItemData["x"] as! Double)
-//    relativeY = Float(stockItemData["y"] as! Double)
-//    let stateNum = Float(stockItemData["state"] as! Double)
-//    stateAsInt = Int(stateNum)
-//
-//    var relativeTimerPositionX: Float? = stockItemConfiguration["timerPositionX"]?.floatValue
-//    if relativeTimerPositionX == nil {
-//      relativeTimerPositionX = Float(0.0)
-//    }
-//    var relativeTimerPositionY: Float? = stockItemConfiguration["timerPositionY"]?.floatValue
-//    if relativeTimerPositionY == nil {
-//      relativeTimerPositionY = Float(0.0)
-//    }
-//
-//    species = stockItemData["species"] as! String
-//
-//    stateImageHandler = StateImageHandler(type: type)
-//
-//    state = State(rawValue: stateAsInt)!
-//    lastStateSwitchTime = stockItemData["lastStateSwitchTime"] as AnyObject? as! CFAbsoluteTime
-//
-//    itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
-//
-//
-//    super.init()
-//    setupPriceLabel()
-//    setupTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
-//
-//    addChild(stateImageHandler.node)
-//    isUserInteractionEnabled = true
-//
-//    if type == "plant"{
-//      addChild(plantButton)
-//    }
-//    addChild(timer)
-//    switchTo(state: state)
-//
-//  }
-//
   required init(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
