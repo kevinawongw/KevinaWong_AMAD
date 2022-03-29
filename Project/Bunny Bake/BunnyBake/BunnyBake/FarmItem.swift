@@ -13,11 +13,9 @@ class FarmItem: SKNode {
   let itemPosition: CGPoint
 
   // MARK: Set Values for Type
-  private let maxAmount: Int
   private let relativeX: Float
   private let relativeY: Float
-  private let stockingSpeed: Float
-  private let sellingSpeed: Float
+  private let stockingTime: Float
   private let stockingPrice: Int
   private let sellingPrice: Int
   
@@ -42,9 +40,8 @@ class FarmItem: SKNode {
     self.relativeX = Float(x)
     self.relativeY = Float(y)
     
-    maxAmount = (gameConstSettings["maxAmount"]?.intValue)!
-    stockingSpeed = (gameConstSettings["stockingSpeed"]?.floatValue)! * TimeScale
-    sellingSpeed = (gameConstSettings["sellingSpeed"]?.floatValue)! * TimeScale
+
+    stockingTime = (gameConstSettings["stockingTime"]?.floatValue)! * TimeScale
     stockingPrice = (gameConstSettings["stockingPrice"]?.intValue)!
     sellingPrice = (gameConstSettings["sellingPrice"]?.intValue)!
     
@@ -168,7 +165,7 @@ class FarmItem: SKNode {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     switch state {
       case .empty:
-        let bought = gameDelegate.updateMoney(by: -stockingPrice * maxAmount)
+        let bought = gameDelegate.updateMoney(by: -stockingPrice)
         if bought {
           switchTo(state: .planting)
         }
@@ -177,19 +174,53 @@ class FarmItem: SKNode {
         }
       case .harvest:
         harvestAnimation()
-        gameDelegate.updateMoney(by: stockingPrice * maxAmount)
+        gameDelegate.updateMoney(by: sellingPrice)
         switchTo(state: .empty)
       default:
         break
       }
   }
   
-  func updateStockingTimerText() {
-    let stockingTimeTotal = CFTimeInterval(Float(maxAmount) * stockingSpeed)
+  func updateStockingTimerText(){
+    let stockingTimeTotal = CFTimeInterval(Float(stockingTime))
     let currentTime = CFAbsoluteTimeGetCurrent()
     let timePassed = currentTime - lastStateSwitchTime
     let stockingTimeLeft = stockingTimeTotal - timePassed
     timer.text = String(Int(stockingTimeLeft))
+    if timer.text == "0"{
+      switchTo(state: State.harvest)
+      update()
+      return
+    }
+  }
+
+  func update() {
+    let currentTimeAbsolute = CFAbsoluteTimeGetCurrent()
+    let timePassed = currentTimeAbsolute - lastStateSwitchTime
+    
+    switch state {
+      case .planting:
+        updateStockingTimerText()
+    default:
+      break
+    }
+  }
+
+  // MARK: Animation
+  
+  func shakeItemAnimation() -> SKAction {
+    let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
+    let rotateRight = rotateLeft.reversed()
+    let shakeAction = SKAction.sequence([rotateLeft, rotateRight])
+    let shake = SKAction.repeat(shakeAction, count: 3)
+    return shake
+  }
+  
+  func fadingText() -> SKAction {
+    let moveLabel = SKAction.move(by: CGVector(dx: 0, dy: 20), duration: 10)
+    let fadeLabel = SKAction.fadeOut(withDuration: 1.0)
+    let fadingTextAction = SKAction.group([moveLabel, fadeLabel])
+    return fadingTextAction
   }
   
   func harvestAnimation() -> Bool {
@@ -218,41 +249,8 @@ class FarmItem: SKNode {
     // Fade Animation for Adding
     
     harvestLabel.run(fadingText(), completion: {harvestLabel.removeFromParent()})
-    
+
     return true
   }
-  
-  
-  func update() {
-    let currentTimeAbsolute = CFAbsoluteTimeGetCurrent()
-    let timePassed = currentTimeAbsolute - lastStateSwitchTime
-    
-    switch state {
-      case .planting:
-        updateStockingTimerText()
-        amount = min(Int(Float(timePassed) / stockingSpeed), maxAmount)
-        if amount == maxAmount {
-          switchTo(state: .harvest)
-        }
-    default:
-      break
-    }
-  }
 
-  // MARK: Animation
-  
-  func shakeItemAnimation() -> SKAction {
-    let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
-    let rotateRight = rotateLeft.reversed()
-    let shakeAction = SKAction.sequence([rotateLeft, rotateRight])
-    let shake = SKAction.repeat(shakeAction, count: 3)
-    return shake
-  }
-  
-  func fadingText() -> SKAction {
-    let moveLabel = SKAction.move(by: CGVector(dx: 0, dy: 20), duration: 10)
-    let fadeLabel = SKAction.fadeOut(withDuration: 1.0)
-    let fadingTextAction = SKAction.group([moveLabel, fadeLabel])
-    return fadingTextAction
-  }
 }

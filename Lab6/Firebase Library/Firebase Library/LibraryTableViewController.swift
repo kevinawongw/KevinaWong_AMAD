@@ -6,22 +6,37 @@
 //
 
 import UIKit
+import UIKit
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
 
 
-class LibraryTableViewController: UITableViewController {
+
+class LibraryTableViewController: UITableViewController, FUIAuthDelegate {
     
     var books = [Book]()
     var booksDataHandler = BookDataHandler()
+    var isLoggedIn: Bool?
+    var authUI: FUIAuth!
+    var otherTab: LibraryTableViewController?
+        
+    @IBOutlet weak var loginButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        
+        
+        if isUserSignedIn(){
+            isLoggedIn = true
+            loginButton.title = "Logout"
+        }
+        else {
+            isLoggedIn = false
+            loginButton.title = "Login"
+        }
         getData()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -64,10 +79,22 @@ class LibraryTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if let bookID = books[indexPath.row].id {
-                booksDataHandler.deleteRecipe(bookID: bookID)
-                getData()
+            print("is Logged in? \(isLoggedIn)" )
+            if isLoggedIn!{
+                if let bookID = books[indexPath.row].id {
+                    booksDataHandler.deleteRecipe(bookID: bookID)
+                    getData()
+                }
+             }
+            else {
+                let alert=UIAlertController(title: "Login", message: "Please log in to make changes.", preferredStyle: UIAlertController.Style.alert)
+                        
+                //create a UIAlertAction object for the button
+                let okAction=UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
             }
+            
         }
     }
     
@@ -106,14 +133,37 @@ class LibraryTableViewController: UITableViewController {
     
     @IBAction func unwindSegue(segue:UIStoryboardSegue){
         if segue.identifier == "saveSegue" {
-            let source = segue.source as! AddBookViewController
-            if source.addedBookTitle.isEmpty == false{
-                booksDataHandler.addBookReview(bookTitle: source.addedBookTitle, starReview: source.addedBookRating, bookReview: source.addedBookReview)
-                getData()
-                tableView.reloadData()
+            if isLoggedIn!{
+                let source = segue.source as! AddBookViewController
+                if source.addedBookTitle.isEmpty == false{
+                    booksDataHandler.addBookReview(bookTitle: source.addedBookTitle, starReview: source.addedBookRating, bookReview: source.addedBookReview)
+                    getData()
+                    tableView.reloadData()
+                }
             }
         }
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String,
+    sender: Any?) -> Bool {
+        if identifier == "addBook" {
+            if isLoggedIn!{
+                return true
+            }
+            else {
+                let alert=UIAlertController(title: "Login", message: "Please log in to make changes.", preferredStyle: UIAlertController.Style.alert)
+                        
+                //create a UIAlertAction object for the button
+                let okAction=UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                return false
+            }
+        }
+        else {
+            return true
+        }
+     }
 
     // MARK: - Helper Functions
     
@@ -125,5 +175,91 @@ class LibraryTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    // MARK: Authentication
+    
+    @IBAction func login(_ sender: Any) {
+        if isUserSignedIn(){
+            logout()
+            loginButton.title = "Login"
+            isLoggedIn = false
+        }
+        else{
+            login()
+            loginButton.title = "Logout"
+            isLoggedIn = true
+        }
+    }
 
+    func isUserSignedIn() -> Bool{
+        guard authUI?.auth?.currentUser == nil else {
+            return true
+        }
+        return false
+    }
+    
+
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+         // handle user and error as necessary
+         guard let authUser = user else { return }
+         //create a UIAlertController object
+             let alert=UIAlertController(title: "Firebase", message: "Welcome to Firebase \(authUser.displayName!)", preferredStyle: UIAlertController.Style.alert)
+                     
+             //create a UIAlertAction object for the button
+             let okAction=UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+             alert.addAction(okAction)
+             self.present(alert, animated: true, completion: nil)
+         
+         guard let authError = error else { return }
+      
+         let errorCode = UInt((authError as NSError).code)
+      
+         switch errorCode {
+         case FUIAuthErrorCode.userCancelledSignIn.rawValue:
+             print("User cancelled sign-in");
+             break
+      
+         default:
+             let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
+             print("Login error: \((detailedError as! NSError).localizedDescription)");
+         }
+     }
+    
+    func login(){
+         let providers: [FUIAuthProvider] = [FUIGoogleAuth(authUI: authUI!)]
+         authUI?.providers = providers
+         if authUI?.auth?.currentUser == nil {
+         let authViewController = authUI?.authViewController()
+            present(authViewController!, animated: true, completion: nil)
+         }
+        else {
+            let name = authUI?.auth?.currentUser!.displayName
+            
+            let alert=UIAlertController(title: "Firebase", message: "You're already logged in", preferredStyle:
+                                            UIAlertController.Style.alert)
+
+            let okAction=UIAlertAction(title: "OK", style:
+            UIAlertAction.Style.default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            print("\(authUI?.auth?.currentUser) is the currently logged in")
+         }
+    }
+    
+    func logout() {
+        do{
+            try authUI?.signOut()
+            let alert=UIAlertController(title: "Firebase", message: "You've been logged out of Firebase", preferredStyle: UIAlertController.Style.alert)
+
+            let okAction=UIAlertAction(title: "OK", style:
+            UIAlertAction.Style.default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+         } catch {
+         print("You were not logged out")
+         }
+        
+    }
+    
 }

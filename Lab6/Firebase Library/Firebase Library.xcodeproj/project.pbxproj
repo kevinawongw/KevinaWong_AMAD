@@ -15,7 +15,6 @@
 		0ACECA6A27DFACEA00996930 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ACECA6927DFACEA00996930 /* GoogleService-Info.plist */; };
 		0ACECAAE27DFBB7400996930 /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAAD27DFBB7400996930 /* LibraryTableViewController.swift */; };
 		0ACECAB027DFBC5E00996930 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAAF27DFBC5E00996930 /* AddBookViewController.swift */; };
-		0ACECAB227DFC56E00996930 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAB127DFC56E00996930 /* LoginViewController.swift */; };
 		0ACECAB427DFC69E00996930 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAB327DFC69E00996930 /* Book.swift */; };
 		0ACECAB627DFC71A00996930 /* BookDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAB527DFC71A00996930 /* BookDataHandler.swift */; };
 		0ACECAB827DFDE6D00996930 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACECAB727DFDE6D00996930 /* DetailViewController.swift */; };
@@ -43,7 +42,6 @@
 		0ACECA6927DFACEA00996930 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ACECAAD27DFBB7400996930 /* LibraryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
 		0ACECAAF27DFBC5E00996930 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
-		0ACECAB127DFC56E00996930 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0ACECAB327DFC69E00996930 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0ACECAB527DFC71A00996930 /* BookDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataHandler.swift; sourceTree = "<group>"; };
 		0ACECAB727DFDE6D00996930 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 				0ACECA5B27DFAB4000996930 /* Main.storyboard */,
 				0ACECAB327DFC69E00996930 /* Book.swift */,
 				0ACECAB527DFC71A00996930 /* BookDataHandler.swift */,
-				0ACECAB127DFC56E00996930 /* LoginViewController.swift */,
 				0ACECAAF27DFBC5E00996930 /* AddBookViewController.swift */,
 				0ACECA5E27DFAB4A00996930 /* Assets.xcassets */,
 				0ACECA6027DFAB4A00996930 /* LaunchScreen.storyboard */,
@@ -202,7 +199,6 @@
 				0ACECAB427DFC69E00996930 /* Book.swift in Sources */,
 				0ACECAB627DFC71A00996930 /* BookDataHandler.swift in Sources */,
 				0ACECAAE27DFBB7400996930 /* LibraryTableViewController.swift in Sources */,
-				0ACECAB227DFC56E00996930 /* LoginViewController.swift in Sources */,
 				0ACECA5827DFAB4000996930 /* SceneDelegate.swift in Sources */,
 				0ACECAB827DFDE6D00996930 /* DetailViewController.swift in Sources */,
 			);
@@ -356,6 +352,7 @@
 				DEVELOPMENT_TEAM = 64V278ASH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Firebase Library/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -384,6 +381,7 @@
 				DEVELOPMENT_TEAM = 64V278ASH7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Firebase Library/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

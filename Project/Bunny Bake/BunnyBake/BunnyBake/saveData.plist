@@ -8,16 +8,12 @@
 	<dict>
 		<key>animal</key>
 		<dict>
-			<key>maxAmount</key>
-			<integer>5</integer>
 			<key>sellingPrice</key>
 			<integer>5</integer>
-			<key>sellingSpeed</key>
-			<integer>3</integer>
 			<key>stockingPrice</key>
 			<integer>3</integer>
-			<key>stockingSpeed</key>
-			<integer>3</integer>
+			<key>stockingTime</key>
+			<integer>30</integer>
 			<key>timerPositionX</key>
 			<integer>0</integer>
 			<key>timerPositionY</key>
@@ -25,16 +21,12 @@
 		</dict>
 		<key>plant</key>
 		<dict>
-			<key>maxAmount</key>
-			<integer>2</integer>
 			<key>sellingPrice</key>
 			<integer>7</integer>
-			<key>sellingSpeed</key>
-			<integer>5</integer>
 			<key>stockingPrice</key>
 			<integer>3</integer>
-			<key>stockingSpeed</key>
-			<integer>3</integer>
+			<key>stockingTime</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>stockItemData</key>

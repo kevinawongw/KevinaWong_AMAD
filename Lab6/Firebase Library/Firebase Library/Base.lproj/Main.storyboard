@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IUu-NS-jhz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RtR-uD-soz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="csW-3S-dJb">
-                                <rect key="frame" x="82" y="218.5" width="250" height="259.5"/>
+                                <rect key="frame" x="82" y="318.5" width="250" height="259.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF3-vi-gwG">
                                         <rect key="frame" x="96" y="0.0" width="58" height="43"/>
@@ -68,7 +68,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="csW-3S-dJb" firstAttribute="centerX" secondItem="YUz-8M-bBV" secondAttribute="centerX" id="JlV-XV-Mw5"/>
-                            <constraint firstItem="csW-3S-dJb" firstAttribute="centerY" secondItem="YUz-8M-bBV" secondAttribute="centerY" constant="-100" id="wWE-dG-fYL"/>
+                            <constraint firstItem="csW-3S-dJb" firstAttribute="centerY" secondItem="YUz-8M-bBV" secondAttribute="centerY" id="wWE-dG-fYL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Book Review" id="SuN-xD-NdW"/>
@@ -132,61 +132,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Books" id="4Nw-Dn-srx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fre-Zf-kfN">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="OLD-b8-LwQ">
+                            <color key="tintColor" red="0.55317117920000003" green="0.57725063619999994" blue="0.64047802310000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="aAR-Dq-3KC" kind="presentation" identifier="addRecipe" id="9fk-FF-9iJ"/>
+                                <action selector="login:" destination="oRI-KQ-ra2" id="iWK-CZ-Vqj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fre-Zf-kfN">
+                            <color key="tintColor" red="0.55317117920000003" green="0.57725063619999994" blue="0.64047802310000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="aAR-Dq-3KC" kind="presentation" identifier="addBook" id="9fk-FF-9iJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loginButton" destination="OLD-b8-LwQ" id="OEZ-dO-Ei2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fU-ez-o2a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="mj6-du-uE0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1571.0144927536232" y="60.9375"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="NGe-hg-1sN">
-            <objects>
-                <viewController id="rT3-zX-rnY" customClass="LoginViewController" customModule="Firebase_Library" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9lV-bi-Kpq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ai-1V-tLf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="Profile" id="hGW-Er-frx"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sen-Yh-fWk">
-                                <rect key="frame" x="162" y="428" width="91" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.71306683576521923" green="0.74410652634170737" blue="0.82560996403769837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="login:" destination="rT3-zX-rnY" eventType="touchUpInside" id="sdQ-Xt-XnE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="UMS-h0-SR2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="user-1" landscapeImage="user-1" selectedImage="user" id="yK8-Rr-bGh">
-                        <color key="badgeColor" red="0.71873946190000004" green="0.74620382959999998" blue="0.82859693249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
-                    <connections>
-                        <outlet property="loginButton" destination="sen-Yh-fWk" id="9HM-XS-F3V"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5qz-hs-opd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1592" y="710"/>
         </scene>
         <!--Add Book View Controller-->
         <scene sceneID="1r5-UY-eL9">
@@ -222,7 +188,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="rDW-Ql-HQo">
-                                <rect key="frame" x="41.5" y="173" width="331" height="196.5"/>
+                                <rect key="frame" x="41.5" y="323" width="331" height="196.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="Mja-dA-4mg">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
@@ -305,7 +271,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rDW-Ql-HQo" firstAttribute="centerX" secondItem="wcf-B0-rI1" secondAttribute="centerX" id="lHw-cW-1Mm"/>
-                            <constraint firstItem="rDW-Ql-HQo" firstAttribute="centerY" secondItem="wcf-B0-rI1" secondAttribute="centerY" constant="-150" id="ugB-2o-3oa"/>
+                            <constraint firstItem="rDW-Ql-HQo" firstAttribute="centerY" secondItem="wcf-B0-rI1" secondAttribute="centerY" id="ugB-2o-3oa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -350,33 +316,10 @@
             </objects>
             <point key="canvasLocation" x="660.86956521739137" y="60.9375"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="7tA-of-pfF">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IUu-NS-jhz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bi-TK-RYR">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.71873946190000004" green="0.74620382959999998" blue="0.82859693249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.71873946190000004" green="0.74620382959999998" blue="0.82859693249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="RtR-uD-soz" kind="relationship" relationship="viewControllers" id="chk-tS-gt3"/>
-                        <segue destination="rT3-zX-rnY" kind="relationship" relationship="viewControllers" id="xKo-ml-0wj"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="96B-uN-W6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-249.27536231884059" y="60.9375"/>
-        </scene>
     </scenes>
     <resources>
         <image name="open-book" width="20" height="20"/>
         <image name="open-book-1" width="20" height="20"/>
-        <image name="user" width="20" height="20"/>
-        <image name="user-1" width="20" height="20"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
