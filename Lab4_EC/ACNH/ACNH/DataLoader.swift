@@ -1,8 +1,8 @@
 //
 //  DataLoader.swift
-//  Potter
+//  ACNH
 //
-//  Created by Aileen Pierce
+//  Created by Kevina Wong
 //
 
 import Foundation

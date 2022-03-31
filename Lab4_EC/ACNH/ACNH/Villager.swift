@@ -1,8 +1,8 @@
 //
-//  File.swift
-//  Potter
+//  Villager.swift
+//  ACNH
 //
-//  Created by Aileen Pierce
+//  Created by Kevina Wong
 //
 
 import Foundation

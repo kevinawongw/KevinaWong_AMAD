@@ -150,7 +150,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="beige">
-            <color red="0.9954416338295109" green="1" blue="0.95563002484389836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99500000476837158" green="1" blue="0.95599997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
