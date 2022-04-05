@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.picker.PickerFragment">
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lilita_one"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="35sp"
+                android:typeface="normal" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/appleImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/apple"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/bananaImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/bananas" />
+
+            <ImageButton
+                android:id="@+id/cherryImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/cherries" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/dragonFruitItmage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/dragonfruit" />
+
+            <ImageButton
+                android:id="@+id/durianImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/durian" />
+
+            <ImageButton
+                android:id="@+id/grapeImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/grapes" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/mangoImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/mango" />
+
+            <ImageButton
+                android:id="@+id/orangeImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/orange" />
+
+            <ImageButton
+                android:id="@+id/watermelonImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#FFFFFF"
+                android:onClick="imageClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/watermelon" />
+        </TableRow>
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
