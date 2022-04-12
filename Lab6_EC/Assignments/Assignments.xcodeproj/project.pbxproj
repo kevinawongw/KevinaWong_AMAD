@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC935552805CE4300E6CC4B /* PatrickHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AC935542805CE4300E6CC4B /* PatrickHand-Regular.ttf */; };
 		0AF0F6A427FF9EEF00D28FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF0F6A327FF9EEF00D28FF6 /* AppDelegate.swift */; };
 		0AF0F6A627FF9EEF00D28FF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF0F6A527FF9EEF00D28FF6 /* SceneDelegate.swift */; };
 		0AF0F6AB27FF9EEF00D28FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF0F6A927FF9EEF00D28FF6 /* Main.storyboard */; };
 		0AF0F6AD27FF9EF500D28FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AF0F6AC27FF9EF500D28FF6 /* Assets.xcassets */; };
 		0AF0F6B027FF9EF500D28FF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF0F6AE27FF9EF500D28FF6 /* LaunchScreen.storyboard */; };
-		0AF0F6B827FF9F2300D28FF6 /* PatrickHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF0F6B727FF9F2300D28FF6 /* PatrickHand-Regular.ttf */; };
 		0AF0F6BA27FFA0E700D28FF6 /* AssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF0F6B927FFA0E700D28FF6 /* AssignmentsTableViewController.swift */; };
 		0AF0F6BC27FFA16A00D28FF6 /* AssignmentDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF0F6BB27FFA16A00D28FF6 /* AssignmentDataHandler.swift */; };
 		0AF0F6BE27FFA1C600D28FF6 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF0F6BD27FFA1C600D28FF6 /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC935542805CE4300E6CC4B /* PatrickHand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PatrickHand-Regular.ttf"; sourceTree = "<group>"; };
 		0AF0F6A027FF9EEF00D28FF6 /* Assignments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF0F6A327FF9EEF00D28FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF0F6A527FF9EEF00D28FF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		0AF0F6AC27FF9EF500D28FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AF0F6AF27FF9EF500D28FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AF0F6B127FF9EF500D28FF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AF0F6B727FF9F2300D28FF6 /* PatrickHand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatrickHand-Regular.ttf"; path = "../../Notes/AssignmentTracker/PatrickHand-Regular.ttf"; sourceTree = "<group>"; };
 		0AF0F6B927FFA0E700D28FF6 /* AssignmentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		0AF0F6BB27FFA16A00D28FF6 /* AssignmentDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataHandler.swift; sourceTree = "<group>"; };
 		0AF0F6BD27FFA1C600D28FF6 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				0AF0F6AC27FF9EF500D28FF6 /* Assets.xcassets */,
 				0AF0F6AE27FF9EF500D28FF6 /* LaunchScreen.storyboard */,
 				0AF0F6B127FF9EF500D28FF6 /* Info.plist */,
-				0AF0F6B727FF9F2300D28FF6 /* PatrickHand-Regular.ttf */,
+				0AC935542805CE4300E6CC4B /* PatrickHand-Regular.ttf */,
 			);
 			path = Assignments;
 			sourceTree = "<group>";
@@ -136,8 +136,8 @@
 			files = (
 				0AF0F6B027FF9EF500D28FF6 /* LaunchScreen.storyboard in Resources */,
 				0AF0F6AD27FF9EF500D28FF6 /* Assets.xcassets in Resources */,
+				0AC935552805CE4300E6CC4B /* PatrickHand-Regular.ttf in Resources */,
 				0AF0F6AB27FF9EEF00D28FF6 /* Main.storyboard in Resources */,
-				0AF0F6B827FF9F2300D28FF6 /* PatrickHand-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

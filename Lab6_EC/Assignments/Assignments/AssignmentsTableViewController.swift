@@ -104,7 +104,8 @@ class AssignmentsTableViewController: UITableViewController {
         
         if (cell.accessoryType == .none){
             cell.accessoryType = .checkmark
-            tableView.selectRow(at: selectRowat,: indexPath, animated: false, scrollPosition: UITableView.ScrollPositionUITableView.ScrollPosition.bottom)
+//            tableView.selectRow(at: selectRowat,: indexPath, animated: false, scrollPosition: UITableView.ScrollPositionUITableView.ScrollPosition.bottom)
+            
         }
         else {
                 cell.accessoryType = .none
