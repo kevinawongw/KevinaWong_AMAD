@@ -21,16 +21,19 @@
       "size" : "29x29"
     },
     {
+      "filename" : "8080note.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "120120note.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "120120note-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
