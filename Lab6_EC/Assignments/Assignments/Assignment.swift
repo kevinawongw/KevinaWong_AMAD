@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class Assignment: Encodable, Decodable {
+    var title: String!
+    var note: String!
+    
+    init (title: String, note: String){
+        self.title = title
+        self.note = note
+    }
+}
