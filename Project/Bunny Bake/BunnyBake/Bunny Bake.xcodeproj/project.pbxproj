@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */; };
-		0A48D47727D42D6B009C2AD6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */; };
 		0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */; };
 		0A8E66AE27E3D38300E4BA64 /* saveData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8E66AD27E3D38300E4BA64 /* saveData.plist */; };
+		0AB0BA32280DDB1E00648AA3 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0BA2E280DDB1E00648AA3 /* ready.wav */; };
+		0AB0BA33280DDB1E00648AA3 /* harvest.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0BA2F280DDB1E00648AA3 /* harvest.wav */; };
+		0AB0BA34280DDB1E00648AA3 /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0BA30280DDB1E00648AA3 /* tap.wav */; };
+		0AB0BA35280DDB1E00648AA3 /* plant.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0BA31280DDB1E00648AA3 /* plant.wav */; };
+		0AB0BA37280DE79C00648AA3 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0BA36280DE79C00648AA3 /* bg.mp3 */; };
 		660806CF198EB5CA00F44B65 /* StateImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660806CE198EB5CA00F44B65 /* StateImageHandler.swift */; };
 		660806D4198EB5F200F44B65 /* gamedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 660806D1198EB5F200F44B65 /* gamedata.plist */; };
 		660CB39C197433310056DB9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660CB39B197433310056DB9E /* AppDelegate.swift */; };
@@ -25,9 +29,13 @@
 
 /* Begin PBXFileReference section */
 		0A48D47227D41C13009C2AD6 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
-		0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		0A4C2F9D27D3E0CD00C2CE66 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0A8E66AD27E3D38300E4BA64 /* saveData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = saveData.plist; sourceTree = "<group>"; };
+		0AB0BA2E280DDB1E00648AA3 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
+		0AB0BA2F280DDB1E00648AA3 /* harvest.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = harvest.wav; sourceTree = "<group>"; };
+		0AB0BA30280DDB1E00648AA3 /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
+		0AB0BA31280DDB1E00648AA3 /* plant.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = plant.wav; sourceTree = "<group>"; };
+		0AB0BA36280DE79C00648AA3 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
 		660806CE198EB5CA00F44B65 /* StateImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateImageHandler.swift; sourceTree = "<group>"; };
 		660806D1198EB5F200F44B65 /* gamedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gamedata.plist; sourceTree = "<group>"; };
 		660CB396197433310056DB9E /* Bunny Bake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bunny Bake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +81,18 @@
 			name = plist;
 			sourceTree = "<group>";
 		};
+		0AB0BA2D280DDB1E00648AA3 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0AB0BA36280DE79C00648AA3 /* bg.mp3 */,
+				0AB0BA2E280DDB1E00648AA3 /* ready.wav */,
+				0AB0BA2F280DDB1E00648AA3 /* harvest.wav */,
+				0AB0BA30280DDB1E00648AA3 /* tap.wav */,
+				0AB0BA31280DDB1E00648AA3 /* plant.wav */,
+			);
+			path = sounds;
+			sourceTree = SOURCE_ROOT;
+		};
 		660CB38D197433310056DB9E = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +114,6 @@
 		660CB398197433310056DB9E /* BunnyBake */ = {
 			isa = PBXGroup;
 			children = (
-				0A48D47627D42D6B009C2AD6 /* NavigationBar.swift */,
 				660CB3C7197447670056DB9E /* Constants.swift */,
 				660CB39F197433310056DB9E /* GameScene.swift */,
 				660CB3A1197433310056DB9E /* GameViewController.swift */,
@@ -104,6 +123,7 @@
 				0A48D47827D43132009C2AD6 /* ScenesStoryboards */,
 				660CB3C21974394E0056DB9E /* Resources */,
 				0A48D47A27D435B6009C2AD6 /* plist */,
+				0AB0BA2D280DDB1E00648AA3 /* sounds */,
 			);
 			path = BunnyBake;
 			sourceTree = "<group>";
@@ -178,12 +198,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB0BA35280DDB1E00648AA3 /* plant.wav in Resources */,
 				660CB3A7197433310056DB9E /* Images.xcassets in Resources */,
 				660806D4198EB5F200F44B65 /* gamedata.plist in Resources */,
+				0AB0BA34280DDB1E00648AA3 /* tap.wav in Resources */,
 				0A4C2F9E27D3E0CE00C2CE66 /* GameScene.sks in Resources */,
 				0A8E66AE27E3D38300E4BA64 /* saveData.plist in Resources */,
 				660CB3A5197433310056DB9E /* Main.storyboard in Resources */,
+				0AB0BA37280DE79C00648AA3 /* bg.mp3 in Resources */,
 				0A48D47327D41C13009C2AD6 /* PressStart2P-Regular.ttf in Resources */,
+				0AB0BA33280DDB1E00648AA3 /* harvest.wav in Resources */,
+				0AB0BA32280DDB1E00648AA3 /* ready.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +224,6 @@
 				660CB3C419743ECA0056DB9E /* FarmItem.swift in Sources */,
 				660CB3A2197433310056DB9E /* GameViewController.swift in Sources */,
 				668ED1631974938D00243435 /* GameDelegate.swift in Sources */,
-				0A48D47727D42D6B009C2AD6 /* NavigationBar.swift in Sources */,
 				660CB39C197433310056DB9E /* AppDelegate.swift in Sources */,
 				660CB3C8197447670056DB9E /* Constants.swift in Sources */,
 			);

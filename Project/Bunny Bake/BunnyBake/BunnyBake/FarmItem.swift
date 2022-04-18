@@ -1,4 +1,5 @@
 import SpriteKit
+import AVFoundation
 
 class FarmItem: SKNode {
   
@@ -25,6 +26,8 @@ class FarmItem: SKNode {
   private var timer = SKLabelNode(fontNamed: "PressStart2P-Regular")
   private var stateImageHandler: StateImageHandler
   private var plantButton = SKSpriteNode(imageNamed: "plant_button")
+  var audioPlayer: AVAudioPlayer?
+
   
   // MARK: Constructor
   init(state: Int, species: String, amount: Int, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
@@ -39,7 +42,6 @@ class FarmItem: SKNode {
     self.y = y
     self.relativeX = Float(x)
     self.relativeY = Float(y)
-    
 
     stockingTime = (gameConstSettings["stockingTime"]?.floatValue)! * TimeScale
     stockingPrice = (gameConstSettings["stockingPrice"]?.intValue)!
@@ -58,6 +60,7 @@ class FarmItem: SKNode {
     itemPosition = CGPoint(x: Int(relativeX * Float(stateImageHandler.node.calculateAccumulatedFrame().size.width)), y: Int(relativeY * Float(stateImageHandler.node.calculateAccumulatedFrame().size.height)))
     
     super.init()
+    
     setPlantButton()
     setupTimer(relativeX: relativeTimerPositionX!, relativeY: relativeTimerPositionY!)
     
@@ -106,6 +109,7 @@ class FarmItem: SKNode {
   // MARK: State Handling
   
   func switchTo(state: State) {
+    
     if self.state != state {
       lastStateSwitchTime = CFAbsoluteTimeGetCurrent()
     }
@@ -113,19 +117,57 @@ class FarmItem: SKNode {
     self.state = state
     if type == "plant"{
       switch state {
+        
       case .empty:
         timer.isHidden = true
         plantButton.isHidden = false
         stateImageHandler.updateImagefromStage(stage: 0)
+        
+        let sound = Bundle.main.path(forResource: "harvest", ofType: "wav")!
+        let url = URL(fileURLWithPath: sound)
+    
+        do{
+          audioPlayer = try AVAudioPlayer(contentsOf: url)
+          audioPlayer?.play()
+        }
+        catch{
+          
+        }
+           
       case .planting:
+        
         timer.isHidden = false
         plantButton.isHidden = true
         stateImageHandler.updateImagefromStage(stage: 1)
+        
+        let sound = Bundle.main.path(forResource: "plant", ofType: "wav")!
+        let url = URL(fileURLWithPath: sound)
+    
+        do{
+          audioPlayer = try AVAudioPlayer(contentsOf: url)
+          audioPlayer?.play()
+        }
+        catch{
+          
+        }
 
       case .harvest:
+        // Switch Ready -> Empty
+        
         timer.isHidden = true
         plantButton.isHidden = true
         stateImageHandler.updateImagefromStage(stage: 2)
+        
+        let sound = Bundle.main.path(forResource: "ready", ofType: "wav")!
+        let url = URL(fileURLWithPath: sound)
+    
+        do{
+          audioPlayer = try AVAudioPlayer(contentsOf: url)
+          audioPlayer?.play()
+        }
+        catch{
+          
+        }
       }
     }
     else{
@@ -135,11 +177,33 @@ class FarmItem: SKNode {
           timer.isHidden = false
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 0)
+          
+          let sound = Bundle.main.path(forResource: "harvest", ofType: "wav")!
+          let url = URL(fileURLWithPath: sound)
+      
+          do{
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+          }
+          catch{
+            
+          }
 
         case .harvest:
           timer.isHidden = true
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 1)
+          
+          let sound = Bundle.main.path(forResource: "ready", ofType: "wav")!
+          let url = URL(fileURLWithPath: sound)
+      
+          do{
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+          }
+          catch{
+            
+          }
         case .empty:
           switchTo(state: .planting)
         }
@@ -150,11 +214,32 @@ class FarmItem: SKNode {
           timer.isHidden = false
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 2)
+          
+          let sound = Bundle.main.path(forResource: "harvest", ofType: "wav")!
+          let url = URL(fileURLWithPath: sound)
+      
+          do{
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+          }
+          catch{
+            
+          }
 
         case .harvest:
           timer.isHidden = true
           plantButton.isHidden = true
           stateImageHandler.updateImagefromStage(stage: 3)
+          let sound = Bundle.main.path(forResource: "ready", ofType: "wav")!
+          let url = URL(fileURLWithPath: sound)
+      
+          do{
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+          }
+          catch{
+            
+          }
         case .empty:
           switchTo(state: .planting)
         }
@@ -206,7 +291,8 @@ class FarmItem: SKNode {
     }
   }
 
-  // MARK: Animation
+  
+  // MARK: Animations
   
   func shakeItemAnimation() -> SKAction {
     let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)

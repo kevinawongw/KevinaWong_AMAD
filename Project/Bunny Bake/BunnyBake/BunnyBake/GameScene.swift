@@ -28,6 +28,9 @@ class GameScene: SKScene {
     moneyLabel.fontSize = 40
     addChild(moneyLabel)
     
+    let backgroundSound = SKAudioNode(fileNamed: "bg.mp3")
+    self.addChild(backgroundSound)
+    
     load()
   }
   
