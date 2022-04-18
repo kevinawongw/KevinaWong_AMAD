@@ -6,7 +6,7 @@ class FarmItem: SKNode {
   // MARK: Variables for Item
   let type: String
   let species: String
-  private var amount: Int
+//  private var amount: Int
   var state: State
   private var lastStateSwitchTime: CFAbsoluteTime
   var x: Double
@@ -30,11 +30,11 @@ class FarmItem: SKNode {
 
   
   // MARK: Constructor
-  init(state: Int, species: String, amount: Int, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
+  init(state: Int, species: String, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
     
     self.gameDelegate = gameDelegate
     self.species = species
-    self.amount = amount
+//    self.amount = amount
     self.lastStateSwitchTime = lastStateSwitchTime
     self.type = type
     self.state = State(rawValue: state)!
@@ -98,7 +98,7 @@ class FarmItem: SKNode {
     let data = NSMutableDictionary()
     data["type"] = type
     data["species"] = species
-    data["amount"] = amount
+//    data["amount"] = amount
     data["x"] = relativeX
     data["y"] = relativeY
     data["lastStateSwitchTime"] = lastStateSwitchTime

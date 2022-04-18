@@ -3,7 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>money</key>
-	<integer>100</integer>
+	<integer>50</integer>
+	<key>wheatAmount</key>
+	<integer>0</integer>
+	<key>milkAmount</key>
+	<integer>0</integer>
+	<key>eggAmount</key>
+	<integer>0</integer>
+	<key>creamAmount</key>
+	<integer>0</integer>
 	<key>gameConstantSettings</key>
 	<dict>
 		<key>animal</key>
@@ -36,8 +44,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>cow</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
 			<key>type</key>
@@ -54,8 +60,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>cow</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
 			<key>type</key>
@@ -72,8 +76,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>chicken</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
 			<key>type</key>
@@ -90,8 +92,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>chicken</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
 			<key>type</key>
@@ -108,8 +108,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<integer>-1</integer>
 			<key>type</key>
@@ -126,8 +124,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>0</real>
 			<key>type</key>
@@ -144,8 +140,6 @@
 			<integer>0</integer>
 			<key>species</key>
 			<string>wheat</string>
-			<key>amount</key>
-			<integer>0</integer>
 			<key>lastStateSwitchTime</key>
 			<real>-1</real>
 			<key>type</key>

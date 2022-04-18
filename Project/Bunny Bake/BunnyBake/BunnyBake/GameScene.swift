@@ -4,6 +4,10 @@ import SpriteKit
 class GameScene: SKScene {
   
   var money = 0
+  var eggAmount = 0
+  var creamAmount = 0
+  var wheatAmount = 0
+  var milkAmount = 0
   var farmItems: [FarmItem] = []
   var gameData = [String: [String: NSNumber]]()
   
@@ -31,48 +35,26 @@ class GameScene: SKScene {
     let backgroundSound = SKAudioNode(fileNamed: "bg.mp3")
     self.addChild(backgroundSound)
     
-    load()
+    load(dataFile: "playerData.plist")
   }
   
   // MARK: - Load and save plist file
-//  @objc func saveGameData() {
-//    let path = documentFilePath(fileName: "../plist/gamedata.plist")
-//    let farmData = NSMutableArray()
-//    for farmItem : FarmItem in farmItems {
-//      farmData.add(farmItem.data())
-//    }
-//    var stockItemConfigurationsObjects = [AnyObject]()
-//    var stockItemConfigurationsKeys = [NSCopying]()
-//    for (key, stockItemConfiguration) in stockItemConfigurations {
-//      stockItemConfigurationsKeys.append(key as NSCopying)
-//      stockItemConfigurationsObjects.append(stockItemConfiguration as AnyObject)
-//
-//    }
-//
-//    let stockItemConfigurationsNSDictionary = NSDictionary(objects: stockItemConfigurationsObjects, forKeys: stockItemConfigurationsKeys)
-//    let objects = [stockItemConfigurationsNSDictionary, money, farmData] as [Any]
-//    let keys = ["stockItemConfigurations", "money", "stockItemData"]
-//    let gameData = NSDictionary(objects: objects, forKeys: keys as [NSCopying])
-//    gameData.write(toFile: path, atomically: true)
-//  }
+  func save(dataFile:String) {
+    
+  let path = dataFileURL(fileName: "playerData.plist")
+    let objects = [money,milkAmount,creamAmount,wheatAmount,eggAmount] as [Any]
+    let keys = ["money", "wheatAmount","eggAmount", "creamAmount", "milkAmount"]
+    let gameData = NSDictionary(objects: objects, forKeys: keys as [NSCopying])
+    print("+== Writing Money: \(money) ==+")
+    gameData.write(toFile: path!, atomically: true)
+  }
   
-//  func save(){
-//    let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
-//    if FileManager.default.fileExists(atPath: path){
-//      game
-//    }
-//
-//  }
-//
-  func load() {
+  func load(dataFile: String) {
     
     // Get path and read data from path
-    let path = Bundle.main.path(forResource: "saveData", ofType: "plist")!
-    if FileManager.default.fileExists(atPath: path){
-      let savedData = NSDictionary(contentsOfFile: path)
-  
-      money = savedData!["money"] as! Int
-      moneyLabel.text = String("$\(money)")
+    let configPath = Bundle.main.path(forResource: "saveData", ofType: "plist")!
+    if FileManager.default.fileExists(atPath: configPath){
+      let savedData = NSDictionary(contentsOfFile: configPath)
       
       // Get list of animals and crops
       let itemList = savedData!["stockItemData"] as! [[String: AnyObject]]
@@ -82,7 +64,6 @@ class GameScene: SKScene {
         
         let itemState = item["state"] as! Int
         let itemType = item["type"] as! String
-        let itemAmount = item["amount"] as! Int
         let itemSpecies = item["species"] as! String
         let itemLastSwitch = item["lastStateSwitchTime"] as! CFAbsoluteTime
         let itemX = item["x"] as! Double
@@ -90,13 +71,33 @@ class GameScene: SKScene {
         let gameConstSettings = (gameData[itemType] as [String: NSNumber]?)!
         
         print("+== Loading in \(itemSpecies)... ==+")
-        let loadItem = FarmItem(state: itemState, species: itemSpecies, amount: itemAmount, lastStateSwitchTime: itemLastSwitch, type: itemType, x: itemX, y: itemY, gameConstSettings: gameConstSettings, gameDelegate: self)
+        let loadItem = FarmItem(state: itemState, species: itemSpecies, lastStateSwitchTime: itemLastSwitch, type: itemType, x: itemX, y: itemY, gameConstSettings: gameConstSettings, gameDelegate: self)
         
         loadItem.position = CGPoint(x: Int(Float(itemX) * Float(size.width)), y: Int(Float(itemY) * Float(size.height)))
         addChild(loadItem)
         farmItems.append(loadItem)
       }
     }
+    let dataPath = dataFileURL(fileName: "playerData.plist")
+    if FileManager.default.fileExists(atPath: dataPath!){
+      let savedData = NSDictionary(contentsOfFile: dataPath!)
+      money = savedData!["money"] as! Int
+      milkAmount = savedData!["milkAmount"] as! Int
+      creamAmount = savedData!["creamAmount"] as! Int
+      eggAmount = savedData!["eggAmount"] as! Int
+      wheatAmount = savedData!["wheatAmount"] as! Int
+      moneyLabel.text = String("$\(money)")
+    }
+    
+    else{
+      money = 20
+      milkAmount = 0
+      creamAmount = 0
+      eggAmount = 20
+      wheatAmount = 20
+      moneyLabel.text = String("$\(money)")
+    }
+    
   }
   
   func dataFileURL(fileName: String) -> String? {
@@ -144,6 +145,7 @@ extension GameScene: GameDelegate {
   override func update(_ currentTime: TimeInterval) {
     for item in farmItems {
       item.update()
+      save(dataFile: "playerData.plist")
     }
   }
 }
