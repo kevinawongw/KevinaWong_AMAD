@@ -12,6 +12,11 @@ class GameScene: SKScene {
   var gameData = [String: [String: NSNumber]]()
   
   var moneyLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+  var milkLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+  var creamLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+  var eggLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+  var wheatLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+
   
   override func didMove(to view: SKView) {
     
@@ -32,30 +37,85 @@ class GameScene: SKScene {
     moneyLabel.fontSize = 40
     addChild(moneyLabel)
     
+    // Background Music
     let backgroundSound = SKAudioNode(fileNamed: "bg.mp3")
     self.addChild(backgroundSound)
     
+    // Inventory Display
+    let milk = SKSpriteNode(imageNamed: "milk")
+    milk.position = CGPoint(x: size.width - moneyBackground.size.width + 30, y: size.height - moneyBackground.size.height - 50)
+    addChild(milk)
+    
+    milkLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    milkLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+    milkLabel.position = CGPoint(x: size.width - 210, y: size.height - 235)
+    milkLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    milkLabel.fontSize = 18
+    addChild(milkLabel)
+    
+    let cream = SKSpriteNode(imageNamed: "cream")
+    cream.position = CGPoint(x: size.width - moneyBackground.size.width + 150, y: size.height - moneyBackground.size.height - 50)
+    addChild(cream)
+    
+    creamLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    creamLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+    creamLabel.position = CGPoint(x: size.width - 90, y: size.height - 235)
+    creamLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    creamLabel.fontSize = 18
+    addChild(creamLabel)
+    
+    
+    let wheat = SKSpriteNode(imageNamed: "wheat")
+    wheat.position = CGPoint(x: size.width - moneyBackground.size.width + 30, y: size.height - moneyBackground.size.height - 120)
+    addChild(wheat)
+    
+    wheatLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    wheatLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+    wheatLabel.position = CGPoint(x: size.width - 210, y: size.height - 305)
+    wheatLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    wheatLabel.fontSize = 18
+    addChild(wheatLabel)
+    
+    let egg = SKSpriteNode(imageNamed: "egg")
+    egg.position = CGPoint(x: size.width - moneyBackground.size.width + 150, y: size.height - moneyBackground.size.height - 120)
+    addChild(egg)
+    
+    eggLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    eggLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+    eggLabel.position = CGPoint(x: size.width - 90, y: size.height - 305)
+    eggLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+    eggLabel.fontSize = 18
+    addChild(eggLabel)
+    
+//    moneyLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+//    moneyLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+//    moneyLabel.position = CGPoint(x: size.width - 60, y: size.height - 90)
+//    moneyLabel.fontColor = SKColor(red: 77/255.0, green: 44/255.0, blue: 11/255.0, alpha: 0.8)
+//    moneyLabel.fontSize = 40
+//    addChild(moneyLabel)
+    
+    
+    // Loading Data
     load(dataFile: "playerData.plist")
   }
   
   // MARK: - Load and save plist file
-  func save(dataFile:String) {
-    
-  let path = dataFileURL(fileName: "playerData.plist")
-    let objects = [money,milkAmount,creamAmount,wheatAmount,eggAmount] as [Any]
-    let keys = ["money", "wheatAmount","eggAmount", "creamAmount", "milkAmount"]
-    let gameData = NSDictionary(objects: objects, forKeys: keys as [NSCopying])
-    print("+== Writing Money: \(money) ==+")
-    gameData.write(toFile: path!, atomically: true)
-  }
-  
+//  func save(dataFile:String) {
+//
+//  let path = dataFileURL(fileName: "playerData.plist")
+//    let objects = [money,milkAmount,creamAmount,wheatAmount,eggAmount] as [Any]
+//    let keys = ["money", "wheatAmount","eggAmount", "creamAmount", "milkAmount"]
+//    let gameData = NSDictionary(objects: objects, forKeys: keys as [NSCopying])
+//    print("+== Writing Money: \(money) ==+")
+//    gameData.write(toFile: path!, atomically: true)
+//  }
+//
   func load(dataFile: String) {
     
     // Get path and read data from path
     let configPath = Bundle.main.path(forResource: "saveData", ofType: "plist")!
     if FileManager.default.fileExists(atPath: configPath){
       let savedData = NSDictionary(contentsOfFile: configPath)
-      
       // Get list of animals and crops
       let itemList = savedData!["stockItemData"] as! [[String: AnyObject]]
       
@@ -86,16 +146,30 @@ class GameScene: SKScene {
       creamAmount = savedData!["creamAmount"] as! Int
       eggAmount = savedData!["eggAmount"] as! Int
       wheatAmount = savedData!["wheatAmount"] as! Int
-      moneyLabel.text = String("$\(money)")
-    }
-    
-    else{
-      money = 20
+      money = 50
       milkAmount = 0
       creamAmount = 0
-      eggAmount = 20
-      wheatAmount = 20
+      eggAmount = 0
+      wheatAmount = 0
+
       moneyLabel.text = String("$\(money)")
+      milkLabel.text = String("x\(milkAmount)")
+      creamLabel.text = String("x\(creamAmount)")
+      eggLabel.text = String("x\(eggAmount)")
+      wheatLabel.text = String("x\(wheatAmount)")
+    }
+    else{
+      money = 50
+      milkAmount = 0
+      creamAmount = 0
+      eggAmount = 0
+      wheatAmount = 0
+      moneyLabel.text = String("$\(money)")
+      milkLabel.text = String("x\(milkAmount)")
+      creamLabel.text = String("x\(creamAmount)")
+      eggLabel.text = String("x\(eggAmount)")
+      wheatLabel.text = String("x\(wheatAmount)")
+
     }
     
   }
@@ -106,12 +180,41 @@ class GameScene: SKScene {
     return url?.path
   }
   
-  
 }
 
 // MARK: - GameDelegate
 extension GameScene: GameDelegate {
   
+  func save(dataFile:String) {
+    
+  let path = dataFileURL(fileName: "playerData.plist")
+    let objects = [money,milkAmount,creamAmount,eggAmount,wheatAmount] as [Any]
+    let keys = ["money", "milkAmount","creamAmount", "eggAmount", "wheatAmount"]
+    let gameData = NSDictionary(objects: objects, forKeys: keys as [NSCopying])
+    print("+== Writing Money: \(money) ==+")
+    gameData.write(toFile: path!, atomically: true)
+  }
+  
+  
+  func updateCrop(species: String){
+    switch species {
+    case "cow":
+      milkAmount += 2
+      milkLabel.text = String("x\(milkAmount)")
+      creamAmount += 2
+      creamLabel.text = String("x\(creamAmount)")
+    case "chicken":
+      eggAmount += 3
+      eggLabel.text = String("x\(eggAmount)")
+
+    case "wheat":
+      wheatAmount += 5
+      wheatLabel.text = String("x\(wheatAmount)")
+    default:
+      return
+    }
+  }
+
   func updateMoney(by delta: Int) -> Bool {
     if money + delta < 0 {
       return false
@@ -136,16 +239,15 @@ extension GameScene: GameDelegate {
     deltaLabel.run(labelAction, completion: {deltaLabel.removeFromParent()})
     
     money += delta
-    moneyLabel.text = String("$ \(money)")
-    
+    moneyLabel.text = String("$\(money)")
+      
     return true
   }
-
   
   override func update(_ currentTime: TimeInterval) {
     for item in farmItems {
       item.update()
-      save(dataFile: "playerData.plist")
+//      save(dataFile: "playerData.plist")
     }
   }
 }

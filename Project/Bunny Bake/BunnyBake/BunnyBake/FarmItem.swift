@@ -6,12 +6,12 @@ class FarmItem: SKNode {
   // MARK: Variables for Item
   let type: String
   let species: String
-//  private var amount: Int
   var state: State
   private var lastStateSwitchTime: CFAbsoluteTime
   var x: Double
   var y: Double
   let itemPosition: CGPoint
+  var audioPlayer: AVAudioPlayer?
 
   // MARK: Set Values for Type
   private let relativeX: Float
@@ -26,15 +26,12 @@ class FarmItem: SKNode {
   private var timer = SKLabelNode(fontNamed: "PressStart2P-Regular")
   private var stateImageHandler: StateImageHandler
   private var plantButton = SKSpriteNode(imageNamed: "plant_button")
-  var audioPlayer: AVAudioPlayer?
-
   
   // MARK: Constructor
   init(state: Int, species: String, lastStateSwitchTime: CFAbsoluteTime, type: String, x: Double, y: Double, gameConstSettings: [String: NSNumber], gameDelegate: GameDelegate){
     
     self.gameDelegate = gameDelegate
     self.species = species
-//    self.amount = amount
     self.lastStateSwitchTime = lastStateSwitchTime
     self.type = type
     self.state = State(rawValue: state)!
@@ -98,7 +95,6 @@ class FarmItem: SKNode {
     let data = NSMutableDictionary()
     data["type"] = type
     data["species"] = species
-//    data["amount"] = amount
     data["x"] = relativeX
     data["y"] = relativeY
     data["lastStateSwitchTime"] = lastStateSwitchTime
@@ -253,6 +249,8 @@ class FarmItem: SKNode {
         let bought = gameDelegate.updateMoney(by: -stockingPrice)
         if bought {
           switchTo(state: .planting)
+          gameDelegate.save(dataFile: "playerData.plist")
+
         }
         else {
           plantButton.run(shakeItemAnimation())
@@ -260,7 +258,10 @@ class FarmItem: SKNode {
       case .harvest:
         harvestAnimation()
         gameDelegate.updateMoney(by: sellingPrice)
+        gameDelegate.updateCrop(species: species)
+        gameDelegate.save(dataFile: "playerData.plist")
         switchTo(state: .empty)
+      
       default:
         break
       }
@@ -291,8 +292,7 @@ class FarmItem: SKNode {
     }
   }
 
-  
-  // MARK: Animations
+  // MARK: Animation
   
   func shakeItemAnimation() -> SKAction {
     let rotateLeft = SKAction.rotate(byAngle: 0.2, duration: 0.1)
