@@ -46,6 +46,7 @@ class GameScene: SKScene {
     milk.position = CGPoint(x: size.width - moneyBackground.size.width + 30, y: size.height - moneyBackground.size.height - 50)
     addChild(milk)
     
+    // Milk
     milkLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
     milkLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
     milkLabel.position = CGPoint(x: size.width - 210, y: size.height - 235)
@@ -53,6 +54,8 @@ class GameScene: SKScene {
     milkLabel.fontSize = 18
     addChild(milkLabel)
     
+    // Cream
+
     let cream = SKSpriteNode(imageNamed: "cream")
     cream.position = CGPoint(x: size.width - moneyBackground.size.width + 150, y: size.height - moneyBackground.size.height - 50)
     addChild(cream)
@@ -64,7 +67,7 @@ class GameScene: SKScene {
     creamLabel.fontSize = 18
     addChild(creamLabel)
     
-    
+    // Wheat
     let wheat = SKSpriteNode(imageNamed: "wheat")
     wheat.position = CGPoint(x: size.width - moneyBackground.size.width + 30, y: size.height - moneyBackground.size.height - 120)
     addChild(wheat)
@@ -76,6 +79,7 @@ class GameScene: SKScene {
     wheatLabel.fontSize = 18
     addChild(wheatLabel)
     
+    // Egg
     let egg = SKSpriteNode(imageNamed: "egg")
     egg.position = CGPoint(x: size.width - moneyBackground.size.width + 150, y: size.height - moneyBackground.size.height - 120)
     addChild(egg)
@@ -86,16 +90,7 @@ class GameScene: SKScene {
     eggLabel.fontColor = SKColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
     eggLabel.fontSize = 18
     addChild(eggLabel)
-    
-//    moneyLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-//    moneyLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
-//    moneyLabel.position = CGPoint(x: size.width - 60, y: size.height - 90)
-//    moneyLabel.fontColor = SKColor(red: 77/255.0, green: 44/255.0, blue: 11/255.0, alpha: 0.8)
-//    moneyLabel.fontSize = 40
-//    addChild(moneyLabel)
-    
-    
-    // Loading Data
+
     load(dataFile: "playerData.plist")
   }
   
@@ -146,11 +141,6 @@ class GameScene: SKScene {
       creamAmount = savedData!["creamAmount"] as! Int
       eggAmount = savedData!["eggAmount"] as! Int
       wheatAmount = savedData!["wheatAmount"] as! Int
-      money = 50
-      milkAmount = 0
-      creamAmount = 0
-      eggAmount = 0
-      wheatAmount = 0
 
       moneyLabel.text = String("$\(money)")
       milkLabel.text = String("x\(milkAmount)")
@@ -159,6 +149,8 @@ class GameScene: SKScene {
       wheatLabel.text = String("x\(wheatAmount)")
     }
     else{
+      // First Time Playing
+      
       money = 50
       milkAmount = 0
       creamAmount = 0
