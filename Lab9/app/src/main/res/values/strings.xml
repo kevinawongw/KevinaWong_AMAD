@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Classes</string>
+    <string name="name">Course Name</string>
+    <string name="code">Course Code</string>
+    <string name="taughby">Taught By</string>
+    <string name="hintName">Enter Name</string>
+    <string name="hintCode">Enter Course Code</string>
+    <string name="hintTaughtBy">Enter Name</string>
+    <string name="saved">Course Saved</string>
+    <string name="viewCourses">View Courses</string>
+    <string name="addCourse">Add Courses</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="deleteItem">Successfully Removed</string>
+    <string name="action">Action</string>
+    <string name="no">No</string>
+
+</resources>
