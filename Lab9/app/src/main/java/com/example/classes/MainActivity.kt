@@ -94,6 +94,9 @@ class MainActivity : AppCompatActivity() {
             val myTeach = taughtBy.text.toString()
             viewModel.add(Course(0,myName, myCode, myTeach))
             Snackbar.make(view, R.string.saved, Snackbar.LENGTH_LONG).show()
+            name.setText("")
+            code.setText("")
+            taughtBy.setText("")
         }
 
         viewModel.courseList.observe(this, Observer { courses ->
